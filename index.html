@@ -16,308 +16,87 @@
     --accent: #D4813A;
     --blanc: #FEFCF8;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background-color: var(--doux); color: var(--fonce); min-height: 100vh; }
 
-  body {
-    font-family: 'Lato', sans-serif;
-    background-color: var(--doux);
-    color: var(--fonce);
-    min-height: 100vh;
-  }
-
-  /* ---- HEADER ---- */
   header {
     background: linear-gradient(135deg, var(--terre) 0%, #6B4226 50%, var(--mousse) 100%);
-    padding: 2.5rem 1.5rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+    padding: 2.5rem 1.5rem 2rem; text-align: center; position: relative; overflow: hidden;
   }
-  header::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 6vw, 3.2rem);
-    color: var(--blanc);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    position: relative;
-  }
-  header p {
-    color: rgba(255,255,255,0.85);
-    font-size: clamp(1rem, 3vw, 1.25rem);
-    margin-top: 0.5rem;
-    font-weight: 300;
-    position: relative;
-  }
-  .header-icons {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-    position: relative;
-  }
+  header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 3.2rem); color: var(--blanc); text-shadow: 0 2px 8px rgba(0,0,0,0.3); position: relative; }
+  header p { color: rgba(255,255,255,0.85); font-size: clamp(1rem, 3vw, 1.25rem); margin-top: 0.5rem; font-weight: 300; position: relative; }
+  .header-icons { font-size: 2.5rem; margin-bottom: 0.75rem; position: relative; }
 
-  /* ---- MAIN ---- */
-  main {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 2rem 1.25rem 4rem;
-  }
+  main { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
 
-  /* ---- STEP ---- */
-  .step {
-    background: var(--blanc);
-    border-radius: 20px;
-    padding: 2rem 1.75rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 20px rgba(139,94,60,0.1);
-    border: 2px solid transparent;
-    transition: border-color 0.3s;
-  }
+  .step { background: var(--blanc); border-radius: 20px; padding: 2rem 1.75rem; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(139,94,60,0.1); border: 2px solid transparent; transition: border-color 0.3s; }
   .step.active { border-color: var(--accent); }
+  .step-label { display: inline-block; background: var(--accent); color: white; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 20px; margin-bottom: 1rem; }
+  .step h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 4vw, 1.75rem); color: var(--terre); margin-bottom: 1.25rem; }
 
-  .step-label {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.9rem;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-  }
-  .step h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.3rem, 4vw, 1.75rem);
-    color: var(--terre);
-    margin-bottom: 1.25rem;
-  }
-
-  /* ---- REGION GRID ---- */
-  .region-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.9rem;
-  }
-  .region-btn {
-    background: var(--sable);
-    border: 2px solid transparent;
-    border-radius: 14px;
-    padding: 1rem 0.75rem;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.2s;
-    font-family: 'Lato', sans-serif;
-  }
+  .region-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.9rem; }
+  .region-btn { background: var(--sable); border: 2px solid transparent; border-radius: 14px; padding: 1rem 0.75rem; cursor: pointer; text-align: center; transition: all 0.2s; font-family: 'Lato', sans-serif; }
   .region-btn:hover { background: #EEE0C4; transform: translateY(-2px); }
-  .region-btn.selected {
-    background: var(--mousse);
-    border-color: var(--mousse);
-    color: white;
-  }
+  .region-btn.selected { background: var(--mousse); border-color: var(--mousse); color: white; }
   .region-btn .emoji { font-size: 2rem; display: block; margin-bottom: 0.4rem; }
   .region-btn .name { font-size: 1.05rem; font-weight: 700; }
   .region-btn .dist { font-size: 0.8rem; opacity: 0.7; margin-top: 0.2rem; }
 
-  /* ---- ENV GRID ---- */
-  .env-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.9rem;
-  }
-  .env-btn {
-    background: var(--sable);
-    border: 2px solid transparent;
-    border-radius: 14px;
-    padding: 1.1rem 0.5rem;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.2s;
-    font-family: 'Lato', sans-serif;
-  }
+  .env-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.9rem; }
+  .env-btn { background: var(--sable); border: 2px solid transparent; border-radius: 14px; padding: 1.1rem 0.5rem; cursor: pointer; text-align: center; transition: all 0.2s; font-family: 'Lato', sans-serif; }
   .env-btn:hover { background: #EEE0C4; transform: translateY(-2px); }
-  .env-btn.selected {
-    background: var(--ciel);
-    border-color: var(--ciel);
-    color: white;
-  }
+  .env-btn.selected { background: var(--ciel); border-color: var(--ciel); color: white; }
   .env-btn .emoji { font-size: 2.2rem; display: block; margin-bottom: 0.5rem; }
   .env-btn .name { font-size: 1rem; font-weight: 700; }
 
-  /* ---- SEARCH BTN ---- */
-  .search-btn {
-    display: block;
-    width: 100%;
-    background: linear-gradient(135deg, var(--accent), var(--terre));
-    color: white;
-    border: none;
-    border-radius: 16px;
-    padding: 1.25rem;
-    font-size: 1.3rem;
-    font-weight: 700;
-    font-family: 'Lato', sans-serif;
-    cursor: pointer;
-    margin-top: 1.5rem;
-    transition: all 0.2s;
-    box-shadow: 0 4px 15px rgba(212,129,58,0.35);
-  }
+  .search-btn { display: block; width: 100%; background: linear-gradient(135deg, var(--accent), var(--terre)); color: white; border: none; border-radius: 16px; padding: 1.25rem; font-size: 1.3rem; font-weight: 700; font-family: 'Lato', sans-serif; cursor: pointer; margin-top: 1.5rem; transition: all 0.2s; box-shadow: 0 4px 15px rgba(212,129,58,0.35); }
   .search-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,129,58,0.45); }
   .search-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
-  /* ---- RESULTS ---- */
-  #results { margin-top: 0.5rem; }
+  .destination-card { background: var(--blanc); border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(139,94,60,0.12); margin-bottom: 1.5rem; border-left: 6px solid var(--mousse); animation: fadeUp 0.5s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-  .destination-card {
-    background: var(--blanc);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(139,94,60,0.12);
-    margin-bottom: 1.5rem;
-    border-left: 6px solid var(--mousse);
-    animation: fadeUp 0.5s ease both;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .card-header {
-    background: linear-gradient(135deg, var(--mousse), #3D6B4A);
-    padding: 1.25rem 1.5rem;
-    color: white;
-  }
-  .card-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-  }
-  .card-header .subtitle {
-    font-size: 0.9rem;
-    opacity: 0.85;
-    margin-top: 0.25rem;
-  }
-
-  .crowd-badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-top: 0.5rem;
-  }
+  .card-header { background: linear-gradient(135deg, var(--mousse), #3D6B4A); padding: 1.25rem 1.5rem; color: white; }
+  .card-header h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+  .card-header .subtitle { font-size: 0.9rem; opacity: 0.85; margin-top: 0.25rem; }
+  .crowd-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-top: 0.5rem; }
   .crowd-calme { background: rgba(255,255,255,0.25); }
   .crowd-moyen { background: rgba(255,200,0,0.35); }
   .crowd-touristique { background: rgba(255,80,80,0.35); }
 
   .card-body { padding: 1.5rem; }
-
-  .info-section {
-    margin-bottom: 1.1rem;
-    padding-bottom: 1.1rem;
-    border-bottom: 1px solid #F0E8D8;
-  }
+  .info-section { margin-bottom: 1.1rem; padding-bottom: 1.1rem; border-bottom: 1px solid #F0E8D8; }
   .info-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .info-section h4 {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--terre);
-    margin-bottom: 0.5rem;
-  }
-  .info-section p, .info-section li {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #3A2E1E;
-  }
+  .info-section h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--terre); margin-bottom: 0.5rem; }
+  .info-section p, .info-section li { font-size: 1.05rem; line-height: 1.6; color: #3A2E1E; }
   .info-section ul { padding-left: 1.25rem; }
-
+  .info-section li { margin-bottom: 0.3rem; }
+  .tag-gratuit { display: inline-block; background: #E8F5E9; color: #2E7D32; border-radius: 8px; padding: 0.1rem 0.5rem; font-size: 0.8rem; font-weight: 700; margin-left: 0.4rem; }
+  .tag-payant { display: inline-block; background: #FFF3E0; color: #E65100; border-radius: 8px; padding: 0.1rem 0.5rem; font-size: 0.8rem; font-weight: 700; margin-left: 0.4rem; }
   .dog-ok { color: var(--mousse); font-weight: 700; }
   .dog-warn { color: #C0830A; font-weight: 700; }
 
-  /* ---- AI SECTION ---- */
-  .ai-section {
-    background: var(--blanc);
-    border-radius: 20px;
-    padding: 2rem 1.75rem;
-    box-shadow: 0 4px 20px rgba(107,155,184,0.15);
-    border: 2px solid var(--ciel);
-    margin-top: 1rem;
-  }
-  .ai-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: var(--ciel);
-    margin-bottom: 0.5rem;
-  }
-  .ai-section p { font-size: 1rem; color: #555; margin-bottom: 1.25rem; }
+  .results-count { background: var(--mousse); color: white; border-radius: 12px; padding: 0.75rem 1.25rem; margin-bottom: 1.25rem; font-size: 1rem; font-weight: 700; text-align: center; }
 
-  .ai-btn {
-    background: linear-gradient(135deg, var(--ciel), #4A7FA0);
-    color: white;
-    border: none;
-    border-radius: 14px;
-    padding: 1rem 1.5rem;
-    font-size: 1.15rem;
-    font-weight: 700;
-    font-family: 'Lato', sans-serif;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.2s;
-    box-shadow: 0 4px 15px rgba(107,155,184,0.35);
-  }
+  .ai-section { background: var(--blanc); border-radius: 20px; padding: 2rem 1.75rem; box-shadow: 0 4px 20px rgba(107,155,184,0.15); border: 2px solid var(--ciel); margin-top: 1rem; }
+  .ai-section h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--ciel); margin-bottom: 0.5rem; }
+  .ai-section p { font-size: 1rem; color: #555; margin-bottom: 1.25rem; }
+  .ai-btn { background: linear-gradient(135deg, var(--ciel), #4A7FA0); color: white; border: none; border-radius: 14px; padding: 1rem 1.5rem; font-size: 1.15rem; font-weight: 700; font-family: 'Lato', sans-serif; cursor: pointer; width: 100%; transition: all 0.2s; box-shadow: 0 4px 15px rgba(107,155,184,0.35); }
   .ai-btn:hover { transform: translateY(-2px); }
   .ai-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-  .ai-response {
-    margin-top: 1.25rem;
-    background: #F0F7FB;
-    border-radius: 14px;
-    padding: 1.25rem;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--fonce);
-    white-space: pre-wrap;
-    display: none;
-  }
+  .ai-response { margin-top: 1.25rem; background: #F0F7FB; border-radius: 14px; padding: 1.25rem; font-size: 1.05rem; line-height: 1.7; color: var(--fonce); white-space: pre-wrap; display: none; }
   .ai-response.visible { display: block; animation: fadeUp 0.4s ease; }
 
-  .loading-dots span {
-    display: inline-block;
-    animation: bounce 1.2s infinite;
-    font-size: 1.5rem;
-  }
+  .loading-dots span { display: inline-block; animation: bounce 1.2s infinite; font-size: 1.5rem; }
   .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
   .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes bounce {
-    0%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-8px); }
-  }
+  @keyframes bounce { 0%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-8px); } }
 
-  /* ---- EMPTY STATE ---- */
-  .empty-state {
-    text-align: center;
-    padding: 3rem 1rem;
-    color: #999;
-  }
-  .empty-state .big { font-size: 3rem; margin-bottom: 1rem; }
-  .empty-state p { font-size: 1.1rem; }
-
-  /* ---- FOOTER ---- */
-  footer {
-    text-align: center;
-    padding: 2rem;
-    color: #999;
-    font-size: 0.9rem;
-  }
+  footer { text-align: center; padding: 2rem; color: #999; font-size: 0.9rem; }
   footer span { color: var(--accent); }
 </style>
 </head>
 <body>
-
 <header>
   <div class="header-icons">🚐🐾🗺️</div>
   <h1>Notre Guide Vadrouille</h1>
@@ -325,452 +104,2028 @@
 </header>
 
 <main>
-
-  <!-- ÉTAPE 1 : RÉGION -->
   <div class="step active" id="step1">
     <span class="step-label">Étape 1</span>
     <h2>Où voulez-vous aller ?</h2>
     <div class="region-grid">
-      <button class="region-btn" onclick="selectRegion(this,'bretagne-sud')">
-        <span class="emoji">🌊</span>
-        <span class="name">Bretagne Sud</span>
-        <span class="dist">~250 km</span>
-      </button>
-      <button class="region-btn" onclick="selectRegion(this,'val-de-loire')">
-        <span class="emoji">🏰</span>
-        <span class="name">Val de Loire</span>
-        <span class="dist">~100 km</span>
-      </button>
-      <button class="region-btn" onclick="selectRegion(this,'dordogne')">
-        <span class="emoji">🦆</span>
-        <span class="name">Dordogne & Périgord</span>
-        <span class="dist">~180 km</span>
-      </button>
-      <button class="region-btn" onclick="selectRegion(this,'charente')">
-        <span class="emoji">🌻</span>
-        <span class="name">Charente & Creuse</span>
-        <span class="dist">~80 km</span>
-      </button>
-      <button class="region-btn" onclick="selectRegion(this,'landes')">
-        <span class="emoji">🌲</span>
-        <span class="name">Landes & Gironde</span>
-        <span class="dist">~200 km</span>
-      </button>
-      <button class="region-btn" onclick="selectRegion(this,'massif-central')">
-        <span class="emoji">⛰️</span>
-        <span class="name">Massif Central</span>
-        <span class="dist">~250 km</span>
-      </button>
-      <button class="region-btn" onclick="selectRegion(this,'vendee-nord')">
-        <span class="emoji">🏖️</span>
-        <span class="name">Vendée & Pays de Loire</span>
-        <span class="dist">~80 km</span>
-      </button>
-      <button class="region-btn" onclick="selectRegion(this,'berry-bourbonnais')">
-        <span class="emoji">🌾</span>
-        <span class="name">Berry & Bourbonnais</span>
-        <span class="dist">~170 km</span>
-      </button>
+      <button class="region-btn" onclick="selectRegion(this,'bretagne-sud')"><span class="emoji">🌊</span><span class="name">Bretagne Sud</span><span class="dist">~250 km</span></button>
+      <button class="region-btn" onclick="selectRegion(this,'val-de-loire')"><span class="emoji">🏰</span><span class="name">Val de Loire</span><span class="dist">~100 km</span></button>
+      <button class="region-btn" onclick="selectRegion(this,'dordogne')"><span class="emoji">🦆</span><span class="name">Dordogne & Périgord</span><span class="dist">~180 km</span></button>
+      <button class="region-btn" onclick="selectRegion(this,'charente')"><span class="emoji">🌻</span><span class="name">Charente & Creuse</span><span class="dist">~80 km</span></button>
+      <button class="region-btn" onclick="selectRegion(this,'landes')"><span class="emoji">🌲</span><span class="name">Landes & Gironde</span><span class="dist">~200 km</span></button>
+      <button class="region-btn" onclick="selectRegion(this,'massif-central')"><span class="emoji">⛰️</span><span class="name">Massif Central</span><span class="dist">~250 km</span></button>
+      <button class="region-btn" onclick="selectRegion(this,'vendee-nord')"><span class="emoji">🏖️</span><span class="name">Vendée & Pays de Loire</span><span class="dist">~80 km</span></button>
+      <button class="region-btn" onclick="selectRegion(this,'berry-bourbonnais')"><span class="emoji">🌾</span><span class="name">Berry & Bourbonnais</span><span class="dist">~170 km</span></button>
     </div>
   </div>
 
-  <!-- ÉTAPE 2 : ENVIRONNEMENT -->
   <div class="step" id="step2">
     <span class="step-label">Étape 2</span>
     <h2>Quel type de paysage ?</h2>
     <div class="env-grid">
-      <button class="env-btn" onclick="selectEnv(this,'mer')">
-        <span class="emoji">🌊</span>
-        <span class="name">Mer & Côte</span>
-      </button>
-      <button class="env-btn" onclick="selectEnv(this,'lac')">
-        <span class="emoji">🏞️</span>
-        <span class="name">Lacs & Rivières</span>
-      </button>
-      <button class="env-btn" onclick="selectEnv(this,'montagne')">
-        <span class="emoji">⛰️</span>
-        <span class="name">Collines & Volcans</span>
-      </button>
-      <button class="env-btn" onclick="selectEnv(this,'campagne')">
-        <span class="emoji">🌾</span>
-        <span class="name">Campagne & Vignes</span>
-      </button>
-      <button class="env-btn" onclick="selectEnv(this,'foret')">
-        <span class="emoji">🌲</span>
-        <span class="name">Forêts</span>
-      </button>
-      <button class="env-btn" onclick="selectEnv(this,'village')">
-        <span class="emoji">🏘️</span>
-        <span class="name">Villages & Patrimoine</span>
-      </button>
+      <button class="env-btn" onclick="selectEnv(this,'mer')"><span class="emoji">🌊</span><span class="name">Mer & Côte</span></button>
+      <button class="env-btn" onclick="selectEnv(this,'lac')"><span class="emoji">🏞️</span><span class="name">Lacs & Rivières</span></button>
+      <button class="env-btn" onclick="selectEnv(this,'montagne')"><span class="emoji">⛰️</span><span class="name">Collines & Volcans</span></button>
+      <button class="env-btn" onclick="selectEnv(this,'campagne')"><span class="emoji">🌾</span><span class="name">Campagne & Vignes</span></button>
+      <button class="env-btn" onclick="selectEnv(this,'foret')"><span class="emoji">🌲</span><span class="name">Forêts</span></button>
+      <button class="env-btn" onclick="selectEnv(this,'village')"><span class="emoji">🏘️</span><span class="name">Villages & Patrimoine</span></button>
     </div>
   </div>
 
-  <!-- BOUTON RECHERCHE -->
-  <button class="search-btn" id="searchBtn" onclick="showResults()" disabled>
-    🔍 Trouver nos destinations
-  </button>
+  <button class="search-btn" id="searchBtn" onclick="showResults()" disabled>🔍 Trouver nos destinations</button>
 
-  <!-- RÉSULTATS -->
   <div id="results"></div>
 
-  <!-- SECTION IA -->
   <div class="ai-section" id="aiSection" style="display:none">
-    <h2>✨ Vous voulez plus d'idées ?</h2>
-    <p>Demandez à l'IA de vous suggérer des destinations supplémentaires selon vos choix.</p>
-    <button class="ai-btn" id="aiBtn" onclick="askAI()">
-      🤖 Générer d'autres idées avec l'IA
-    </button>
+    <h2>✨ Vous voulez encore plus d'idées ?</h2>
+    <p>L'intelligence artificielle peut vous suggérer des destinations supplémentaires selon vos choix.</p>
+    <button class="ai-btn" id="aiBtn" onclick="askAI()">🤖 Générer d'autres idées avec l'IA</button>
     <div class="ai-response" id="aiResponse"></div>
   </div>
-
 </main>
 
-<footer>
-  Fait avec <span>♥</span> pour nos aventuriers à 4 pattes 🐕🐕
-</footer>
+<footer>Fait avec <span>♥</span> pour nos aventuriers à 4 pattes 🐕🐕</footer>
 
 <script>
-// ===================== DONNÉES =====================
 const destinations = {
+
+  // ===========================
+  // BRETAGNE SUD
+  // ===========================
   'bretagne-sud': {
     mer: [
       {
-        nom: "Presqu'île de Rhuys",
-        region: "Bretagne Sud — Morbihan",
-        foule: "calme",
-        description: "Une presqu'île discrète face au Golfe du Morbihan, loin des foules du côté nord. Villages de pêcheurs, falaises douces, sentiers côtiers.",
-        activites: ["Randonnée sur le GR34 (peu fréquenté)", "Baignade dans les criques cachées", "Observation des oiseaux migrateurs", "Marchés locaux à Sarzeau"],
-        chiens: { ok: true, detail: "✅ Chiens bienvenus sur la majorité des sentiers. Quelques plages autorisées hors saison (avant juin et après septembre). Tenir en laisse dans les zones naturelles." },
-        van: "Routes étroites mais praticables en van court. Parking facile à Sarzeau et Saint-Gildas-de-Rhuys. Aucune restriction de hauteur notée.",
-        aires: ["Aire de Sarzeau (gratuite, eau)", "Parking du port de Penvins (sauvage possible en basse saison)"],
-        astuce: "Évitez juillet-août. En mai-juin ou septembre, la presqu'île est quasi déserte et magnifique."
+        nom: "Presqu'île de Rhuys", region: "Morbihan", foule: "calme",
+        description: "Une presqu'île discrète face au Golfe du Morbihan. Villages de pêcheurs, falaises douces, sentiers côtiers très accessibles.",
+        activites: [
+          "Promenade sur le sentier côtier de Saint-Gildas (plat, facile) 🟢 Gratuit",
+          "Village de Sarzeau : marché du jeudi matin 🟢 Gratuit",
+          "Point de vue sur le Golfe depuis la pointe de Penvins 🟢 Gratuit",
+          "Château de Suscinio (visite guidée) 🔴 Payant (~9€/pers.)",
+          "Baignade dans les criques de Port-Navalo 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens bienvenus sur les sentiers côtiers. Quelques plages autorisées hors saison (avant juin, après septembre). Laisse recommandée." },
+        van: "Routes praticables en van. Parking facile à Sarzeau et Saint-Gildas. Aucune restriction de hauteur.",
+        aires: ["Aire de Sarzeau (gratuite, eau disponible)", "Parking du port de Penvins (libre hors saison)"],
+        astuce: "En mai-juin ou septembre, la presqu'île est quasi déserte. Évitez juillet-août."
+      },
+      {
+        nom: "Île de Groix (ferry depuis Lorient)", region: "Morbihan", foule: "calme",
+        description: "Une petite île bretonne préservée, sans voiture, avec des falaises de tuf uniques. Parfaite pour une journée calme.",
+        activites: [
+          "Tour de l'île en voiturette électrique (location au port) 🔴 Payant (~40€ la journée)",
+          "Plage des Grands Sables (plage concave unique en Europe) 🟢 Gratuit",
+          "Village de Port-Tudy et son petit port 🟢 Gratuit",
+          "Écomusée de l'île de Groix 🔴 Payant (~5€/pers.)",
+          "Point de vue de la Pointe des Chats 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens acceptés sur l'île. Prévoir laisse pour les parties habitées. Plages accessibles hors saison." },
+        van: "Van reste sur le continent à Lorient. Ferry payant (véhicule non embarqué). Journée à pied ou en voiturette.",
+        aires: ["Aire de Lorient-Port (proche du ferry, payante)", "Parking port de Lorient (payant à la journée)"],
+        astuce: "Réservez le ferry à l'avance en été. Hors saison : pas besoin de réserver."
+      },
+      {
+        nom: "Côte Sauvage de Quiberon", region: "Morbihan", foule: "moyen",
+        description: "Des falaises spectaculaires battues par les vagues, un sentier côtier exceptionnel. Beaucoup moins fréquenté que la plage de Quiberon.",
+        activites: [
+          "Sentier de la Côte Sauvage (tronçons courts possibles, accessible) 🟢 Gratuit",
+          "Point de vue depuis la Pointe du Conguel 🟢 Gratuit",
+          "Village de Saint-Pierre-Quiberon (marché local) 🟢 Gratuit",
+          "Observation des vagues et des oiseaux de mer 🟢 Gratuit",
+          "Marché de Quiberon (mardi et vendredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens autorisés sur la côte sauvage toute l'année. Attention aux falaises. Laisse conseillée sur les parties exposées." },
+        van: "Parking au nord de la presqu'île (plus calme). Évitez le centre de Quiberon en juillet-août.",
+        aires: ["Aire de Saint-Pierre-Quiberon (gratuite)", "Parking côte sauvage (gratuit hors saison)"],
+        astuce: "La côte sauvage est côté océan, à l'opposé de la Grande Plage touristique. Prenez la D186."
+      },
+      {
+        nom: "Étel et la Ria d'Étel", region: "Morbihan", foule: "calme",
+        description: "Un estuaire secret entre dunes, pins et villages de pêcheurs. L'un des plus beaux estuaires de Bretagne, méconnu et paisible.",
+        activites: [
+          "Promenade sur les bords de la ria (chemin plat) 🟢 Gratuit",
+          "Village d'Étel et son marché (mercredi matin) 🟢 Gratuit",
+          "Traversée en bac vers Anse de Merrien 🔴 Payant (quelques euros)",
+          "Observation des oiseaux sur les vasières 🟢 Gratuit",
+          "Dégustation d'huîtres au port d'Étel 🔴 Payant (prix marché)"
+        ],
+        chiens: { ok: true, detail: "✅ Chemins de ria idéaux pour les chiens. Peu de monde, pas de restrictions notables. Baignade possible dans les anses calmes." },
+        van: "Étel accessible sans difficulté. Grand parking gratuit au bord de la ria.",
+        aires: ["Aire d'Étel (gratuite, bord de ria)", "Parking plage de la Falaise (libre)"],
+        astuce: "La ria d'Étel est classée parmi les plus belles de France — et presque personne ne le sait."
+      },
+      {
+        nom: "Belle-Île-en-Mer (ferry depuis Quiberon)", region: "Morbihan", foule: "moyen",
+        description: "La plus grande île bretonne. Des aiguilles rocheuses, des plages cachées, des landes. Magnifique hors saison.",
+        activites: [
+          "Aiguilles de Port-Coton (point de vue) 🟢 Gratuit",
+          "Village du Palais et sa citadelle Vauban 🔴 Payant (~8€/pers.)",
+          "Plage de Donnant (sauvage, accessible en voiture) 🟢 Gratuit",
+          "Tour de l'île en van (route côtière) 🟢 Gratuit",
+          "Marché du Palais (mardi et vendredi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens acceptés sur les plages et sentiers. Restrictions dans certains espaces naturels protégés. Laisse recommandée." },
+        van: "Van embarquable sur le ferry (réservation obligatoire, payant). Île facilement parcourue en van.",
+        aires: ["Camping Pen Prad au Palais (animaux ok)", "Parking Les Grandes Sables (gratuit hors saison)"],
+        astuce: "En mai ou septembre, l'île est magnifique et presque vide. Réservez le ferry à l'avance même hors saison."
+      },
+      {
+        nom: "Presqu'île de Crozon", region: "Finistère", foule: "calme",
+        description: "Des falaises spectaculaires, des criques désertes, des landes à perte de vue. La pointe bretagne la plus sauvage.",
+        activites: [
+          "Cap de la Chèvre (point de vue 360°, chemin court) 🟢 Gratuit",
+          "Plage de Lostmarc'h (accessible à pied, 10 min) 🟢 Gratuit",
+          "Pointe des Espagnols (vue sur Brest) 🟢 Gratuit",
+          "Village de Crozon et son marché (jeudi matin) 🟢 Gratuit",
+          "Musée de la Presqu'île 🔴 Payant (~4€/pers.)"
+        ],
+        chiens: { ok: true, detail: "✅ Landes et chemins très dog-friendly. Certaines plages autorisées toute l'année. Attention aux bords de falaises." },
+        van: "Routes de presqu'île adaptées. Parking aux pointes en général gratuit. Évitez Morgat en haute saison.",
+        aires: ["Aire de Crozon (gratuite, eau)", "Camping des Pins (chiens acceptés)"],
+        astuce: "Le Cap de la Chèvre un matin de brume, c'est inoubliable. Toujours calme."
       }
     ],
+
+    lac: [
+      {
+        nom: "Lac de Grand-Lieu", region: "Loire-Atlantique", foule: "calme",
+        description: "Le plus grand lac naturel de France en hiver, quasi inconnu du grand public. Réserve naturelle sauvage, pêcheurs, oiseaux.",
+        activites: [
+          "Promenade autour du village de Passay (chemin plat) 🟢 Gratuit",
+          "Maison du Lac (exposition sur la faune du lac) 🔴 Payant (~4€/pers.)",
+          "Observation des oiseaux depuis les belvédères 🟢 Gratuit",
+          "Marché de Saint-Philbert-de-Grand-Lieu (vendredi matin) 🟢 Gratuit",
+          "Abbatiale carolingienne de Saint-Philbert 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens acceptés sur les chemins périphériques. Zone de réserve centrale interdite pour protéger les oiseaux. Belle balade en laisse autour du village." },
+        van: "Parking aisé à Passay. Route d'accès simple.",
+        aires: ["Aire de Saint-Philbert-de-Grand-Lieu (gratuite)", "Camping à l'Acacia (animaux acceptés)"],
+        astuce: "Méconnu même des Nantais. En automne, les oiseaux arrivent en masse."
+      },
+      {
+        nom: "Lac de Trémelin", region: "Ille-et-Vilaine", foule: "calme",
+        description: "Un lac forestier paisible en pleine forêt de Brocéliande. Plage naturelle, eau calme, environnement boisé. Idéal pour une halte tranquille.",
+        activites: [
+          "Baignade sur la plage naturelle (surveillée en été) 🟢 Gratuit",
+          "Tour du lac à pied (chemin plat, 5 km) 🟢 Gratuit",
+          "Pêche sur les berges 🔴 Nécessite permis de pêche",
+          "Pédalo et canoë (location en été) 🔴 Payant (~10€/heure)",
+          "Pique-nique dans la forêt 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens bienvenus autour du lac. Baignade canine possible hors zone surveillée. Forêt alentour idéale pour se promener." },
+        van: "Grand parking gratuit au lac. Accès facile.",
+        aires: ["Camping du Lac de Trémelin (animaux ok)", "Parking forêt (gratuit)"],
+        astuce: "Combinez avec une visite de la forêt de Brocéliande toute proche."
+      },
+      {
+        nom: "Étang de la Forge — Forges-les-Eaux", region: "Seine-Maritime (limite zone)", foule: "calme",
+        description: "Un étang calme dans le pays de Bray normand, entouré de prairies verdoyantes. Très peu fréquenté, parfait pour une nuit au calme.",
+        activites: [
+          "Promenade au bord de l'étang (chemin plat) 🟢 Gratuit",
+          "Village de Forges-les-Eaux et ses maisons normandes 🟢 Gratuit",
+          "Marché local du samedi matin 🟢 Gratuit",
+          "Musée de la République (histoire locale) 🔴 Payant (~3€/pers.)",
+          "Observation de la faune autour de l'étang 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords d'étang accessibles avec chiens. Peu de monde, espaces verts vastes. Laisse conseillée." },
+        van: "Village accessible en van. Parking disponible.",
+        aires: ["Aire de Forges-les-Eaux (gratuite)", "Camping municipal (animaux ok)"],
+        astuce: "Forges-les-Eaux est une ancienne station thermale oubliée — architecture Belle Époque surprenante."
+      },
+      {
+        nom: "Lac de Villeneuve-la-Comtesse", region: "Charente-Maritime", foule: "calme",
+        description: "Un petit lac de campagne charentaise, entouré de prairies et de bois. Calme total, accessible, parfait pour une pause douce.",
+        activites: [
+          "Baignade sur la plage herbeuse 🟢 Gratuit",
+          "Promenade autour du lac (30 min, plat) 🟢 Gratuit",
+          "Pêche en famille 🔴 Nécessite permis",
+          "Pique-nique sous les arbres 🟢 Gratuit",
+          "Village de Surgères à proximité (marché le samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Excellent pour les chiens. Peu de monde, herbe douce, eau calme. Baignade canine bienvenue." },
+        van: "Accès très simple. Parking herbe en bord de lac.",
+        aires: ["Parking lac (gratuit)", "Aire de Surgères (gratuite)"],
+        astuce: "Un coin de campagne charentaise parfait pour une nuit au calme en van."
+      },
+      {
+        nom: "Lac de Ribou — Cholet", region: "Maine-et-Loire", foule: "calme",
+        description: "Deux lacs artificiels aux portes de Cholet, entourés de verdure. Peu connu des touristes, fréquenté surtout par les locaux.",
+        activites: [
+          "Tour du lac à pied (chemin plat, 8 km) 🟢 Gratuit",
+          "Plage aménagée de Ribou (baignade surveillée en été) 🟢 Gratuit",
+          "Location de vélos sur place 🔴 Payant (~8€/heure)",
+          "Observation des oiseaux (hérons, canards) 🟢 Gratuit",
+          "Base nautique (kayak, voile) 🔴 Payant"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens acceptés sur les chemins du tour du lac. Zone de baignade principale : chiens en dehors de la zone balisée." },
+        van: "Grand parking gratuit. Accès depuis Cholet très simple.",
+        aires: ["Aire de Cholet (gratuite)", "Camping du Lac de Ribou (animaux acceptés)"],
+        astuce: "Le deuxième lac (Verdon) est plus calme et moins aménagé que Ribou."
+      }
+    ],
+
     foret: [
       {
-        nom: "Forêt de Brocéliande (Paimpont)",
-        region: "Bretagne — Ille-et-Vilaine",
-        foule: "moyen",
-        description: "La forêt légendaire du roi Arthur. Immense, mystérieuse, traversée de sentiers peu balisés. On peut y marcher des heures sans croiser personne si on évite les sites emblématiques le matin.",
-        activites: ["Randonnées longues en sous-bois", "Étang de Paimpont (baignade chiens)", "Sites arthuriens (Val sans Retour, Fontaine de Barenton)", "VTT sur les pistes forestières"],
-        chiens: { ok: true, detail: "✅ Paradis pour les chiens ! Vastes espaces, peu de troupeaux. Laisse recommandée près des zones humides. Tiques présentes — pensez à la prévention." },
+        nom: "Forêt de Brocéliande (Paimpont)", region: "Ille-et-Vilaine", foule: "moyen",
+        description: "La forêt légendaire du roi Arthur. Immense, mystérieuse, avec des sentiers peu fréquentés si on évite les sites emblématiques le matin.",
+        activites: [
+          "Fontaine de Barenton (source légendaire de Merlin, chemin facile) 🟢 Gratuit",
+          "Étang de Paimpont (bord d'eau accessible) 🟢 Gratuit",
+          "Abbaye de Paimpont (visite extérieure) 🟢 Gratuit",
+          "Val sans Retour (chemin court praticable) 🟢 Gratuit",
+          "Village de Paimpont et son marché (samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Paradis pour les chiens ! Vastes espaces, peu de troupeaux. Laisse recommandée près des zones humides. Attention aux tiques." },
         van: "Village de Paimpont accessible facilement. Grand parking gratuit à l'entrée de la forêt.",
-        aires: ["Aire de Paimpont (gratuite, services de base)", "Camping du lac de Trémelin à côté"],
+        aires: ["Aire de Paimpont (gratuite, services de base)", "Camping du Lac de Trémelin à côté"],
         astuce: "Venez tôt le matin pour le Val sans Retour. En semaine hors saison, vous serez seuls."
-      }
-    ],
-    lac: [
+      },
       {
-        nom: "Lac de Grand-Lieu",
-        region: "Loire-Atlantique",
-        foule: "calme",
-        description: "Le plus grand lac naturel de France en hiver, quasi inconnu du grand public. Réserve naturelle sauvage, pêcheurs, oiseaux. Un bout du monde à 30 min de Nantes.",
-        activites: ["Observation ornithologique (hérons, canards, râles)", "Pêche au brochet (réservé aux locaux mais le décor vaut le détour)", "Promenade autour du village de Passay", "Visite du Musée de la Pêche"],
-        chiens: { ok: true, detail: "✅ Chiens acceptés sur les chemins périphériques. Zone de réserve centrale interdite pour protéger les oiseaux. Bonne balade en laisse autour du village." },
-        van: "Parking aisé à Passay. Route d'accès simple depuis Saint-Philbert-de-Grand-Lieu.",
-        aires: ["Aire de Saint-Philbert-de-Grand-Lieu", "Camping à l'Acacia (avec animaux)"],
-        astuce: "Méconnu même des Nantais. En automne, le lac se remplit et les oiseaux arrivent en masse."
+        nom: "Forêt de Fougères", region: "Ille-et-Vilaine", foule: "calme",
+        description: "Une grande forêt domaniale au nord de la Bretagne, avec des châtaigniers centenaires et des menhirs cachés dans les bois.",
+        activites: [
+          "Promenade sur les allées forestières (larges et plates) 🟢 Gratuit",
+          "Château de Fougères (l'un des plus grands châteaux médiévaux d'Europe) 🔴 Payant (~9€/pers.)",
+          "Menhir du Pas du Houx (dans la forêt) 🟢 Gratuit",
+          "Centre-ville de Fougères (architecture médiévale) 🟢 Gratuit",
+          "Marché de Fougères (mercredi et samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Forêt accessible en laisse. Allées larges, peu de passage. Pas de restrictions notables." },
+        van: "Parking camping-car à Fougères. Accès forêt par routes larges.",
+        aires: ["Aire de Fougères (gratuite, eau, électricité)", "Parking forêt (gratuit)"],
+        astuce: "Le château de Fougères est exceptionnel et peu connu hors de Bretagne."
+      },
+      {
+        nom: "Forêt de Coat-an-Noz", region: "Côtes-d'Armor", foule: "calme",
+        description: "Une forêt enchantée aux arbres couverts de mousse, créant une atmosphère féerique unique. L'une des plus belles forêts de Bretagne.",
+        activites: [
+          "Promenade sur le sentier des fées (court, accessible) 🟢 Gratuit",
+          "Observation des lichens et mousses (spectaculaire) 🟢 Gratuit",
+          "Village de Belle-Isle-en-Terre (charmant) 🟢 Gratuit",
+          "Réserve ornithologique de Lanneuffret à proximité 🟢 Gratuit",
+          "Marché local de Guingamp (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens bienvenus. Sentiers bien tracés, terrain plat. Ambiance magique pour les balades en laisse." },
+        van: "Parking au départ du sentier (gratuit). Routes d'accès correctes.",
+        aires: ["Aire de Belle-Isle-en-Terre (gratuite)", "Parking forêt (gratuit)"],
+        astuce: "Par temps humide, les mousses brillent et la forêt prend un aspect presque magique."
+      },
+      {
+        nom: "Forêt du Gâvre", region: "Loire-Atlantique", foule: "calme",
+        description: "Une forêt royale de chênes centenaires au nord de Nantes, presque inconnue des touristes. Silencieuse, immense, apaisante.",
+        activites: [
+          "Allées forestières accessibles en voiture ou à pied 🟢 Gratuit",
+          "Village du Gâvre (charmant, calme) 🟢 Gratuit",
+          "Chapelle Saint-Clair dans la forêt 🟢 Gratuit",
+          "Observation de la faune (cerfs, chevreuils) 🟢 Gratuit",
+          "Pique-nique dans les clairières 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Excellent pour les chiens. Immensité, peu de monde, allées larges. Attention à la période de chasse (automne)." },
+        van: "Parking en forêt (gratuit). Allées larges permettent l'accès en van.",
+        aires: ["Aire du Gâvre (simple, gratuite)", "Parking forêt (libre)"],
+        astuce: "En semaine, on peut traverser toute la forêt sans croiser personne."
+      },
+      {
+        nom: "Forêt de Rennes — Liffré", region: "Ille-et-Vilaine", foule: "calme",
+        description: "La forêt périurbaine de Rennes, mais ses parties profondes sont parfaitement sauvages et désertes en semaine.",
+        activites: [
+          "Allées forestières accessibles à pied ou en voiture 🟢 Gratuit",
+          "Mare aux Fées (zone humide spectaculaire) 🟢 Gratuit",
+          "Château de la Ballue à Bazouges-la-Pérouse (jardins) 🔴 Payant (~10€/pers.)",
+          "Village de Liffré (marché le jeudi) 🟢 Gratuit",
+          "Observation des oiseaux forestiers 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Idéal pour les chiens. Nombreuses allées, peu de circulation. Mare aux Fées parfaite pour patauger." },
+        van: "Parking forêt de Liffré (gratuit). Accès simple depuis la N157.",
+        aires: ["Aire de Liffré (gratuite)", "Parking forêt (libre)"],
+        astuce: "La Mare aux Fées est un coin secret même pour les Rennais."
       }
     ],
+
     campagne: [
       {
-        nom: "Presqu'île de Crozon",
-        region: "Finistère",
-        foule: "moyen",
-        description: "Des falaises spectaculaires, des criques désertes, des landes à perte de vue. La pointe bretagne la plus sauvage. Évitez Morgat en été, mais les hauteurs sont toujours tranquilles.",
-        activites: ["Cap de la Chèvre (vue 360°, peu fréquenté)", "Plage de Lostmarc'h (accessible à pied)", "Pointe des Espagnols", "Randonnées sur les crêtes"],
-        chiens: { ok: true, detail: "✅ Landes et chemins très dog-friendly. Certaines plages autorisées aux chiens toute l'année (se renseigner localement). Attention aux bords de falaises." },
-        van: "Routes de presqu'île adaptées. Parking aux pointes en général gratuit. Évitez le centre de Morgat en haute saison.",
-        aires: ["Aire de Crozon-Morgat", "Camping des Pins (chiens ok)"],
-        astuce: "Le Cap de la Chèvre un matin de brume, c'est inoubliable et toujours calme."
-      }
-    ]
-  },
-  'val-de-loire': {
-    campagne: [
+        nom: "Marais de Brière", region: "Loire-Atlantique", foule: "calme",
+        description: "Le deuxième plus grand marais de France après la Camargue. Un monde à part, avec des canaux, des chaumières et une faune extraordinaire.",
+        activites: [
+          "Promenade en barque sur les canaux (avec guide) 🔴 Payant (~12€/pers.)",
+          "Maison du Parc naturel régional de Brière 🟢 Gratuit (extérieur)",
+          "Village de Saint-Lyphard et son clocher (vue panoramique) 🟢 Gratuit",
+          "Chaumières de Kerhinet (village restauré) 🟢 Gratuit",
+          "Marché de La Baule-Escoublac (mardi et vendredi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens acceptés sur les chemins de marais. Attention aux zones humides. Laisse conseillée pour ne pas déranger les oiseaux." },
+        van: "Routes de marais accessibles. Parking à Kerhinet gratuit.",
+        aires: ["Aire de Saint-Nazaire (gratuite)", "Camping de Brière (animaux ok)"],
+        astuce: "La promenade en barque au lever du soleil est une expérience inoubliable, même pour ceux qui ne peuvent pas marcher longtemps."
+      },
       {
-        nom: "Sologne profonde — autour de Lamotte-Beuvron",
-        region: "Loir-et-Cher",
-        foule: "calme",
-        description: "Un pays de landes, d'étangs et de forêts de chasse totalement oublié des touristes. Des routes droites à travers les pins, des villages endormis, un silence absolu.",
-        activites: ["Randonnées sur les circuits VTT de Sologne", "Pêche dans les étangs (permis requis)", "Observation de la faune (chevreuils, sangliers, oiseaux)", "Maison des Étangs à Ménestreau-en-Villette"],
-        chiens: { ok: true, detail: "✅ Idéal pour les chiens. Espaces immenses, peu de monde. Attention en période de chasse (octobre-février) : préférez les chemins balisés et mettez gilet fluorescent aux chiens." },
-        van: "Routes très accessibles, parkings naturels partout. Aucune difficulté pour un van.",
-        aires: ["Aire de Lamotte-Beuvron (gratuite)", "Parking forêt de Bruadan (sauvage autorisé)"],
-        astuce: "Évitez la période de chasse pour les balades libres. Printemps et été : parfait."
+        nom: "Pays de Redon — Bords de Vilaine", region: "Ille-et-Vilaine", foule: "calme",
+        description: "Une ville fluviale discrète au carrefour de la Bretagne, des Pays de Loire et du bocage. Canaux, écluses, vieilles pierres.",
+        activites: [
+          "Promenade sur les bords de la Vilaine (chemin plat) 🟢 Gratuit",
+          "Centre historique de Redon (belles ruelles) 🟢 Gratuit",
+          "Abbatiale Saint-Sauveur (architecture remarquable) 🟢 Gratuit",
+          "Marché de Redon (lundi matin) 🟢 Gratuit",
+          "Croisière fluviale sur la Vilaine 🔴 Payant (~15€/pers.)"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de rivière accessibles en laisse. Ville calme, pas de restrictions notables." },
+        van: "Aire camping-car bien placée en centre-ville. Accès facile.",
+        aires: ["Aire de Redon (gratuite, eau)", "Quais de la Vilaine (stationnement possible)"],
+        astuce: "Redon est une ville méconnue et charmante. Son marché du lundi est authentiquement local."
+      },
+      {
+        nom: "Vignoble du Muscadet — Pays de Clisson", region: "Loire-Atlantique", foule: "calme",
+        description: "Un paysage de vignes et de manoirs italianisants, inattendu en Bretagne. Clisson, surnommée la 'Venise de l'Ouest', est stupéfiante.",
+        activites: [
+          "Visite du château de Clisson (ruines romantiques) 🔴 Payant (~4€/pers.)",
+          "Promenade dans Clisson le long de la Sèvre 🟢 Gratuit",
+          "Dégustation de Muscadet chez les vignerons 🟢 Gratuit (certains)",
+          "Marché de Clisson (vendredi matin) 🟢 Gratuit",
+          "Domaine de la Garenne Lemot (parc paysager) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Parc de la Garenne Lemot accessible en laisse. Bords de Sèvre très agréables pour les chiens." },
+        van: "Clisson accessible en van. Parking gratuit en périphérie.",
+        aires: ["Aire de Clisson (gratuite)", "Parking bords de Sèvre (libre)"],
+        astuce: "Clisson ressemble à une ville italienne — décor tout à fait inattendu dans le vignoble nantais."
       }
     ],
-    foret: [
-      {
-        nom: "Forêt de Loches & vallée de l'Indre",
-        region: "Indre-et-Loire",
-        foule: "calme",
-        description: "À l'écart des châteaux touristiques, la forêt de Loches et la vallée de l'Indre offrent des paysages bucoliques typiquement français, quasi vierges de touristes.",
-        activites: ["Randonnée en forêt domaniale de Loches", "Baignade dans l'Indre (spots sauvages)", "Village de Montrésor (Plus Beaux Villages, peu connu)", "Marché de Loches le mercredi matin"],
-        chiens: { ok: true, detail: "✅ Forêts et chemins très accessibles aux chiens. Spots de baignade dans l'Indre parfaits pour eux. Laisse conseillée près des zones habitées." },
-        van: "Loches bien équipée pour les vans. Forêt accessible via routes forestières larges.",
-        aires: ["Aire de Loches (gratuite, eau et électricité)", "Bords de l'Indre (stationnement possible)"],
-        astuce: "Montrésor est l'un des plus beaux villages de France et reçoit pourtant très peu de monde."
-      }
-    ],
-    lac: [
-      {
-        nom: "Étang de Bellebouche (Brenne)",
-        region: "Indre — Parc de la Brenne",
-        foule: "calme",
-        description: "Le parc de la Brenne abrite plus de 1 000 étangs. Bellebouche est le plus grand et le plus accessible. Plage naturelle, nature omniprésente, zéro béton.",
-        activites: ["Baignade en eaux calmes", "Kayak et pédalo", "Tour des étangs à vélo", "Maison de la Nature de la Brenne"],
-        chiens: { ok: true, detail: "✅ Chiens autorisés sur les chemins du parc. Zone de baignade principale : chiens acceptés hors zone balisée. Idéal pour qu'ils pataugent librement." },
-        van: "Grand parking gratuit à Bellebouche. Route très accessible.",
-        aires: ["Camping de Bellebouche (animaux acceptés)", "Aire de Mézières-en-Brenne"],
-        astuce: "La Brenne est un trésor méconnu. Venez à l'aube pour voir les hérons cendrés sur les étangs."
-      }
-    ],
+
     village: [
       {
-        nom: "Vallée du Loir (pas la Loire) — entre Vendôme et La Chartre",
-        region: "Sarthe / Loir-et-Cher",
-        foule: "calme",
-        description: "Une rivière douce et oubliée, bordée de troglodytes, de vignes et de villages endormis. Rien à voir avec la Loire touristique — un autre monde, dix fois plus calme.",
-        activites: ["Randonnée le long du GR35", "Visite des caves troglodytes (vin de Jasnières)", "Canöe sur le Loir", "Village de Lavardin (ruines, fresques romanes)"],
-        chiens: { ok: true, detail: "✅ Chemins de rivière parfaits pour les chiens. Peu de routes, beaucoup de nature. Baignade dans le Loir possible en de nombreux points." },
-        van: "Petites routes de vallée, mais praticables. Parkings au bord du Loir dans chaque village.",
-        aires: ["Aire de Vendôme", "Camping municipal de Lavardin (simple, calme)"],
-        astuce: "Le village de Lavardin est classé parmi les plus beaux de France — et presque personne ne le sait."
+        nom: "Rochefort-en-Terre", region: "Morbihan", foule: "moyen",
+        description: "Un village médiéval magnifique perché sur un éperon rocheux. Maisons fleuries, château, ruelles pavées. Élu 'Village préféré des Français'.",
+        activites: [
+          "Promenade dans les ruelles du village 🟢 Gratuit",
+          "Château de Rochefort-en-Terre 🔴 Payant (~6€/pers.)",
+          "Galeries d'artistes et ateliers 🟢 Gratuit",
+          "Marché artisanal (été, vendredi soir) 🟢 Gratuit",
+          "Point de vue depuis les remparts 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens acceptés dans le village en laisse. Parking en dehors du centre pour accéder facilement." },
+        van: "Parking camping-car indiqué à l'entrée du village.",
+        aires: ["Aire de Rochefort-en-Terre (gratuite)", "Parking entrée village (gratuit)"],
+        astuce: "Venez en semaine matin hors juillet-août pour profiter du village presque seuls."
+      },
+      {
+        nom: "Malestroit et la Vallée de l'Oust", region: "Morbihan", foule: "calme",
+        description: "Une cité médiévale charmante avec des maisons à colombages du XVIe siècle, au bord du canal de Nantes à Brest. Presque inconnue.",
+        activites: [
+          "Promenade dans le centre médiéval 🟢 Gratuit",
+          "Ballade le long du canal (chemin plat, idéal) 🟢 Gratuit",
+          "Église Saint-Gilles (sculptures comiques médiévales) 🟢 Gratuit",
+          "Marché de Malestroit (lundi matin) 🟢 Gratuit",
+          "Location de canoë sur l'Oust 🔴 Payant"
+        ],
+        chiens: { ok: true, detail: "✅ Canal et bords d'Oust parfaits pour les chiens. Village accessible en laisse." },
+        van: "Parking au bord du canal (gratuit). Accès van sans problème.",
+        aires: ["Aire de Malestroit (gratuite, bord de canal)", "Parking canal (libre)"],
+        astuce: "L'église de Malestroit a des sculptures satiriques médiévales vraiment amusantes à observer."
+      }
+    ],
+
+    montagne: [
+      {
+        nom: "Monts d'Arrée — Bretagne intérieure", region: "Finistère", foule: "calme",
+        description: "Le 'toit' de la Bretagne, à peine 385 m, mais des paysages de landes, de tourbières et d'étangs absolument saisissants. Bout du monde breton.",
+        activites: [
+          "Point de vue du Roc'h Trévezel (accès voiture, vue imprenable) 🟢 Gratuit",
+          "Écomusée des Monts d'Arrée à Saint-Rivoal 🔴 Payant (~5€/pers.)",
+          "Lac du Yeun Elez (paysage de tourbière unique) 🟢 Gratuit",
+          "Village de Huelgoat et sa forêt de chaos rocheux 🟢 Gratuit",
+          "Marché de Châteauneuf-du-Faou (samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Landes et chemins accessibles. Vaste espace pour les chiens. Laisse conseillée près des zones naturelles protégées." },
+        van: "Routes de montagne douces, pas de difficulté. Parkings aux points de vue.",
+        aires: ["Aire de Huelgoat (gratuite)", "Parking Roc'h Trévezel (gratuit)"],
+        astuce: "Le chaos de rochers de Huelgoat est extraordinaire et accessible même sans marcher longtemps."
       }
     ]
   },
+
+  // ===========================
+  // VAL DE LOIRE
+  // ===========================
+  'val-de-loire': {
+    lac: [
+      {
+        nom: "Étangs de la Brenne — Bellebouche", region: "Indre", foule: "calme",
+        description: "Le parc de la Brenne abrite plus de 1 000 étangs. Bellebouche est le plus grand. Plage naturelle, nature omniprésente, zéro béton.",
+        activites: [
+          "Baignade sur la plage naturelle de Bellebouche 🟢 Gratuit",
+          "Observation des oiseaux depuis les cabanes du parc 🟢 Gratuit",
+          "Tour des étangs en voiture (route panoramique) 🟢 Gratuit",
+          "Maison de la Nature de la Brenne à Rosnay 🔴 Payant (~4€/pers.)",
+          "Marché de Mézières-en-Brenne (vendredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens autorisés sur les chemins du parc. Baignade canine possible hors zone balisée. Idéal pour qu'ils pataugent librement." },
+        van: "Grand parking gratuit à Bellebouche. Route très accessible.",
+        aires: ["Camping de Bellebouche (animaux acceptés)", "Aire de Mézières-en-Brenne (gratuite)"],
+        astuce: "La Brenne est un trésor méconnu. Venez à l'aube pour voir les hérons cendrés sur les étangs."
+      },
+      {
+        nom: "Lac de Chemillé-sur-Indrois", region: "Indre-et-Loire", foule: "calme",
+        description: "Un lac de campagne tourangelle entouré de bois et de prairies. Très calme, plage de sable fin, eau chaude en été.",
+        activites: [
+          "Baignade sur la plage surveillée (été) 🟢 Gratuit",
+          "Tour du lac à pied (chemin plat, 3 km) 🟢 Gratuit",
+          "Pêche sur les rives 🔴 Nécessite permis",
+          "Pédalo (location en été) 🔴 Payant (~8€/heure)",
+          "Pique-nique dans les bois alentour 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Excellent pour les chiens. Rives naturelles accessibles, peu de monde. Baignade libre hors zone balisée." },
+        van: "Grand parking gratuit au lac. Accès simple.",
+        aires: ["Aire de Loches (gratuite, proche)", "Parking lac (gratuit)"],
+        astuce: "Combinez avec la visite de la vieille ville de Loches (à 15 km), très bien conservée."
+      },
+      {
+        nom: "Lac de Sidiailles", region: "Cher", foule: "calme",
+        description: "Un lac artificiel discret du Berry, entouré de landes et de forêts. Peu développé, naturel, avec une plage de sable propre.",
+        activites: [
+          "Baignade sur la plage naturelle 🟢 Gratuit",
+          "Tour du lac à pied (2h, chemin accessible) 🟢 Gratuit",
+          "Pêche à la carpe et au brochet 🔴 Nécessite permis",
+          "Village de Saint-Amand-Montrond et son abbaye 🟢 Gratuit",
+          "Musée Saint-Vic à Saint-Amand 🔴 Payant (~4€/pers.)"
+        ],
+        chiens: { ok: true, detail: "✅ Lac peu fréquenté, rives naturelles accessibles. Baignade canine bienvenue hors zone aménagée." },
+        van: "Grand parking gratuit. Route d'accès simple.",
+        aires: ["Aire de Saint-Amand-Montrond (gratuite)", "Camping du Lac (animaux ok)"],
+        astuce: "Inconnu même des gens du Berry. En semaine, vous serez seuls sur les rives."
+      },
+      {
+        nom: "Vallée de la Creuse — Confluence Creuse-Gartempe", region: "Indre/Vienne", foule: "calme",
+        description: "Une vallée encaissée et sauvage, avec des spots de baignade naturelle dans des eaux claires. Des paysages dignes de la Corrèze.",
+        activites: [
+          "Baignade dans la Creuse (spots gratuits et naturels) 🟢 Gratuit",
+          "Village d'Angles-sur-l'Anglin (Plus Beau Village) 🟢 Gratuit",
+          "Promenade sur les bords de rivière (chemin plat) 🟢 Gratuit",
+          "Ruines du château d'Angles-sur-l'Anglin 🟢 Gratuit (extérieur)",
+          "Marché de La Trimouille (vendredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Rivières et chemins parfaits pour les chiens. Peu de monde, eau claire, accès libre." },
+        van: "Vallon accessible sans difficulté. Parking en bord de Creuse.",
+        aires: ["Aire d'Angles-sur-l'Anglin (gratuite)", "Parking bord de Creuse (libre)"],
+        astuce: "Angles-sur-l'Anglin est l'un des Plus Beaux Villages de France les plus authentiques et les moins visités."
+      },
+      {
+        nom: "Lac de la Forêt d'Orient", region: "Aube", foule: "calme",
+        description: "Un vaste lac artificiel dans la forêt champenoise, parc naturel régional. Immense, peu fréquenté hors été, entouré de forêts.",
+        activites: [
+          "Tour du lac en voiture (route panoramique) 🟢 Gratuit",
+          "Plage de Mesnil-Saint-Père (surveillance en été) 🟢 Gratuit",
+          "Observation des oiseaux (réserve naturelle) 🟢 Gratuit",
+          "Maison du Parc naturel régional 🟢 Gratuit",
+          "Village de Bar-sur-Aube et ses caves champenoises 🔴 Payant (dégustation)"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens acceptés sur les chemins forestiers. Rives du lac accessibles. Laisse conseillée dans la réserve ornithologique." },
+        van: "Grand parking gratuit aux plages. Routes forestières accessibles en van.",
+        aires: ["Aire de Mesnil-Saint-Père (gratuite)", "Camping de la Forêt d'Orient (animaux ok)"],
+        astuce: "En dehors d'août, ce lac de 2 500 ha est presque désert."
+      }
+    ],
+
+    campagne: [
+      {
+        nom: "Sologne profonde — autour de Lamotte-Beuvron", region: "Loir-et-Cher", foule: "calme",
+        description: "Un pays de landes, d'étangs et de forêts de chasse totalement oublié des touristes. Des routes droites à travers les pins, un silence absolu.",
+        activites: [
+          "Promenade sur les routes forestières en van (paysages magnifiques) 🟢 Gratuit",
+          "Maison des Étangs à Ménestreau-en-Villette 🔴 Payant (~4€/pers.)",
+          "Village de Lamotte-Beuvron (marché le vendredi) 🟢 Gratuit",
+          "Observation de la faune (chevreuils, sangliers) 🟢 Gratuit",
+          "Tarte Tatin originale à Lamotte-Beuvron (invention locale) 🔴 Payant (restaurant)"
+        ],
+        chiens: { ok: true, detail: "✅ Idéal pour les chiens. Espaces immenses, peu de monde. Attention en période de chasse (octobre-février)." },
+        van: "Routes forestières très accessibles. Stationnement partout.",
+        aires: ["Aire de Lamotte-Beuvron (gratuite)", "Parking forêt de Bruadan (sauvage autorisé)"],
+        astuce: "La tarte Tatin a été inventée ici. L'Hôtel Tatin en propose une authentique."
+      },
+      {
+        nom: "Vignoble de Touraine — Vallée du Cher", region: "Indre-et-Loire", foule: "calme",
+        description: "Des vignes à perte de vue entre le Cher et les coteaux calcaires, parsemées de caves troglodytes. Moins touristique que la Loire principale.",
+        activites: [
+          "Dégustation de Touraine dans les caves troglodytes 🟢 Gratuit (certaines)",
+          "Château de Chenonceau (vue depuis l'extérieur) 🟢 Gratuit (entrée payante ~16€)",
+          "Village de Montrichard et son donjon 🟢 Gratuit (extérieur)",
+          "Promenade au bord du Cher 🟢 Gratuit",
+          "Marché de Montrichard (mercredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chemins du Cher et vignobles accessibles en laisse. Caves troglodytes : demander au propriétaire." },
+        van: "Routes de vignoble sans difficulté. Parking à Montrichard.",
+        aires: ["Aire de Montrichard (gratuite)", "Parking bords du Cher (libre)"],
+        astuce: "Chenonceau est magnifique depuis l'extérieur — et gratuit. L'intérieur vaut le détour si vous l'avez jamais fait."
+      },
+      {
+        nom: "Pays Fort & Sancerrois", region: "Cher", foule: "calme",
+        description: "Les collines qui produisent le Sancerre, avec des villages viticoles perchés et des panoramas à couper le souffle. Très calme hors des caves.",
+        activites: [
+          "Village de Sancerre et sa tour (vue panoramique) 🟢 Gratuit",
+          "Dégustation de vin de Sancerre 🔴 Payant (achat) / Gratuit (certains)",
+          "Village de Chavignol (producteurs de crottin) 🟢 Gratuit",
+          "Promenade dans les vignes (chemin court) 🟢 Gratuit",
+          "Marché de Bourges (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chemins viticoles accessibles en laisse. Peu de monde hors week-end de dégustation." },
+        van: "Routes de vignoble accessibles. Parking à Sancerre en entrée de ville.",
+        aires: ["Aire de Sancerre (gratuite, vue Loire)", "Parking village (gratuit)"],
+        astuce: "Sancerre au coucher du soleil, avec la Loire en contrebas, est un spectacle inoubliable."
+      },
+      {
+        nom: "Vallée du Loir (pas la Loire) — Vendôme à La Chartre", region: "Sarthe/Loir-et-Cher", foule: "calme",
+        description: "Une rivière douce et oubliée, bordée de troglodytes, de vignes et de villages endormis. Dix fois plus calme que la Loire touristique.",
+        activites: [
+          "Village de Lavardin (ruines de château, fresques romanes) 🟢 Gratuit",
+          "Promenade le long du Loir (chemin plat) 🟢 Gratuit",
+          "Caves troglodytes de Vendôme 🔴 Payant (~6€/pers.)",
+          "Abbatiale de Vendôme (architecture gothique) 🟢 Gratuit",
+          "Marché de Vendôme (vendredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chemins de rivière parfaits pour les chiens. Peu de routes, beaucoup de nature. Baignade dans le Loir possible." },
+        van: "Petites routes de vallée praticables. Parkings au bord du Loir dans chaque village.",
+        aires: ["Aire de Vendôme (gratuite)", "Camping de Lavardin (simple, calme)"],
+        astuce: "Lavardin est l'un des plus beaux villages de France et presque personne ne le sait."
+      },
+      {
+        nom: "Bocage bourbonnais — Autour de Souvigny", region: "Allier", foule: "calme",
+        description: "Un pays de bocage vert et de petites rivières, avec une capitale des Bourbons oubliée. Architecture remarquable pour si peu de visiteurs.",
+        activites: [
+          "Prieuré de Souvigny (nécropole des Ducs de Bourbon) 🔴 Payant (~5€/pers.)",
+          "Village de Souvigny (marché le mercredi) 🟢 Gratuit",
+          "Promenade en bords de Bouble (rivière calme) 🟢 Gratuit",
+          "Haras national de Cluny (route des haras) 🔴 Payant",
+          "Musée municipal de Souvigny 🔴 Payant (~3€)"
+        ],
+        chiens: { ok: true, detail: "✅ Bocage et bords de rivière accessibles. Peu de monde, espaces verts." },
+        van: "Village accessible en van. Parking central gratuit.",
+        aires: ["Aire de Moulins (gratuite, proche)", "Parking Souvigny (gratuit)"],
+        astuce: "Souvigny est l'une des grandes villes médiévales inconnues de France."
+      }
+    ],
+
+    village: [
+      {
+        nom: "Montrésor — Vallée de l'Indrois", region: "Indre-et-Loire", foule: "calme",
+        description: "Un village médiéval suspendu au-dessus de l'Indrois, avec un château habité et des ruelles absolument intactes. Peu visité.",
+        activites: [
+          "Promenade dans le village (ruelles pavées, facile) 🟢 Gratuit",
+          "Château de Montrésor (collection polonaise originale) 🔴 Payant (~8€/pers.)",
+          "Bords de l'Indrois (baignade possible) 🟢 Gratuit",
+          "Collégiale Saint-Jean-Baptiste (architecture Renaissance) 🟢 Gratuit",
+          "Marché local (été, dimanche matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Village et bords d'Indrois accessibles en laisse. Peu de circulation." },
+        van: "Parking en bord d'Indrois (gratuit). Routes accessibles.",
+        aires: ["Aire de Loches (gratuite, 15 km)", "Parking village (gratuit)"],
+        astuce: "L'intérieur du château de Montrésor est surprenant — une collection d'art polonais inattendue en Touraine."
+      },
+      {
+        nom: "Moulins — Capitale des Bourbons", region: "Allier", foule: "calme",
+        description: "Une ancienne capitale royale oubliée par le temps. Patrimoine Renaissance exceptionnel, cathédrale avec des vitraux du XVe, bords de l'Allier sauvages.",
+        activites: [
+          "Cathédrale de Moulins (triptyque du Maître de Moulins) 🟢 Gratuit",
+          "Musée Anne de Beaujeu 🔴 Payant (~5€/pers.)",
+          "Promenade sur les bords de l'Allier 🟢 Gratuit",
+          "Vieux-Moulins (centre historique à pied) 🟢 Gratuit",
+          "Marché de Moulins (mercredi et samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de l'Allier idéaux pour les chiens. Rivière sauvage avec accès libres. Centre-ville accessible en laisse." },
+        van: "Aire camping-car bien placée. Bords de l'Allier accessibles en van.",
+        aires: ["Aire de Moulins (gratuite, bord d'Allier)", "Parking bords d'Allier (accès nature)"],
+        astuce: "Moulins est probablement la plus belle ville inconnue de France."
+      },
+      {
+        nom: "Bourges — Cathédrale et jardins", region: "Cher", foule: "moyen",
+        description: "Une grande ville médiévale avec une cathédrale classée au patrimoine mondial de l'UNESCO, des jardins superbes et un centre piéton accessible.",
+        activites: [
+          "Cathédrale Saint-Étienne (UNESCO, visite gratuite) 🟢 Gratuit",
+          "Jardins de l'Archevêché 🟢 Gratuit",
+          "Palais Jacques-Cœur 🔴 Payant (~9€/pers.)",
+          "Marais de Bourges (jardin insolite en centre-ville) 🟢 Gratuit",
+          "Marché de Bourges (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Jardins accessibles en laisse. Centre-ville piéton praticable. Attention à la cathédrale (chiens non admis à l'intérieur)." },
+        van: "Aire camping-car en entrée de ville. Centre à pied depuis l'aire.",
+        aires: ["Aire de Bourges (gratuite, eau)", "Parking périphérique (gratuit avec navette)"],
+        astuce: "Les jardins de l'Archevêché en fleurs au printemps sont gratuits et magnifiques."
+      },
+      {
+        nom: "Village de Gargilesse-Dampierre", region: "Indre", foule: "calme",
+        description: "Le village préféré de George Sand, dans un vallon de la Creuse. Des maisons fleuries, une église romane aux cryptes décorées, un calme absolu.",
+        activites: [
+          "Promenade dans le village (rues en pente douce) 🟢 Gratuit",
+          "Église romane de Gargilesse (crypte aux fresques médiévales) 🟢 Gratuit",
+          "Maison-musée George Sand 🔴 Payant (~4€/pers.)",
+          "Bords de la Creuse (baignade possible) 🟢 Gratuit",
+          "Galeries d'artistes du village 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Village et bords de Creuse accessibles en laisse. Calme total." },
+        van: "Parking en entrée de village (gratuit). Route d'accès étroite mais praticable.",
+        aires: ["Parking village (gratuit)", "Aire d'Argenton-sur-Creuse (gratuite, proche)"],
+        astuce: "Gargilesse figure parmi les Plus Beaux Villages de France et reste quasi confidentiel."
+      },
+      {
+        nom: "Loches — Cité royale", region: "Indre-et-Loire", foule: "calme",
+        description: "Une cité médiévale parfaitement conservée, avec un donjon royal, une collégiale et des logis royaux. Beaucoup moins fréquentée que les grands châteaux de Loire.",
+        activites: [
+          "Promenade dans la cité médiévale (chemin plat dans la ville basse) 🟢 Gratuit",
+          "Donjon de Loches et logis royaux 🔴 Payant (~9€/pers.)",
+          "Collégiale Saint-Ours (porches sculptés uniques) 🟢 Gratuit",
+          "Marché de Loches (mercredi et samedi matin) 🟢 Gratuit",
+          "Bords de l'Indre (promenade accessible) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Ville basse et bords d'Indre accessibles en laisse. Cité haute accessible en partie." },
+        van: "Aire camping-car bien indiquée. Centre accessible à pied.",
+        aires: ["Aire de Loches (gratuite, eau, électricité)", "Parking bords d'Indre (gratuit)"],
+        astuce: "Loches est l'une des plus belles cités médiévales de France, quasi ignorée des touristes étrangers."
+      }
+    ],
+
+    foret: [
+      {
+        nom: "Forêt de Loches & vallée de l'Indre", region: "Indre-et-Loire", foule: "calme",
+        description: "À l'écart des châteaux touristiques, la forêt de Loches et la vallée de l'Indre offrent des paysages bucoliques quasi vierges de touristes.",
+        activites: [
+          "Promenade en forêt domaniale sur allées larges 🟢 Gratuit",
+          "Baignade dans l'Indre (spots naturels) 🟢 Gratuit",
+          "Village de Montrésor (Plus Beaux Villages) 🟢 Gratuit",
+          "Marché de Loches (mercredi matin) 🟢 Gratuit",
+          "Moulin de la Barre à Beaulieu-lès-Loches 🟢 Gratuit (extérieur)"
+        ],
+        chiens: { ok: true, detail: "✅ Forêts et chemins très accessibles aux chiens. Baignade dans l'Indre possible. Laisse conseillée près des zones habitées." },
+        van: "Loches bien équipée. Forêt accessible via routes forestières larges.",
+        aires: ["Aire de Loches (gratuite, eau, électricité)", "Bords de l'Indre (stationnement possible)"],
+        astuce: "Montrésor est l'un des plus beaux villages de France et reçoit très peu de monde."
+      },
+      {
+        nom: "Forêt d'Amboise et Chanteloup", region: "Indre-et-Loire", foule: "calme",
+        description: "Une grande forêt royale jouxtant le château d'Amboise. La pagode de Chanteloup, vestige d'un château disparu, émerge des arbres — spectacle insolite.",
+        activites: [
+          "Pagode de Chanteloup (monument original, vue de la tour) 🔴 Payant (~9€/pers.)",
+          "Promenade en forêt d'Amboise (allées royales) 🟢 Gratuit",
+          "Château d'Amboise (vue depuis l'extérieur) 🟢 Gratuit / Intérieur payant",
+          "Clos Lucé (dernière demeure de Léonard de Vinci) 🔴 Payant (~17€/pers.)",
+          "Marché d'Amboise (vendredi et dimanche matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Forêt accessible en laisse. La pagode accepte les chiens dans le parc. Allées forestières larges." },
+        van: "Parking forêt (gratuit). Aire de camping-car à Amboise bien indiquée.",
+        aires: ["Aire d'Amboise (gratuite, eau)", "Parking forêt Chanteloup (gratuit)"],
+        astuce: "La pagode de Chanteloup est un monument totalement insolite et très peu connu."
+      },
+      {
+        nom: "Forêt de Montrichard & Caves Monmousseau", region: "Loir-et-Cher", foule: "calme",
+        description: "Une forêt de chênes sur les coteaux du Cher, avec des caves troglodytes creusées dans le tuffeau. Paysage typique de Touraine.",
+        activites: [
+          "Promenade en forêt (chemins plats et accessibles) 🟢 Gratuit",
+          "Caves Monmousseau (visite de caves à bulles en tuffeau) 🔴 Payant (~8€/pers.)",
+          "Village de Montrichard et son donjon 🟢 Gratuit (extérieur)",
+          "Bords du Cher (promenade accessible) 🟢 Gratuit",
+          "Marché de Montrichard (mercredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Forêt et bords du Cher idéaux. Caves : chiens généralement acceptés en laisse." },
+        van: "Parking à Montrichard (gratuit). Accès forêt simple.",
+        aires: ["Aire de Montrichard (gratuite)", "Parking bords du Cher (libre)"],
+        astuce: "La visite des caves Monmousseau est originale et bien accessible physiquement."
+      }
+    ],
+
+    mer: [
+      {
+        nom: "Côte de Jade — Saint-Brevin-les-Pins", region: "Loire-Atlantique", foule: "calme",
+        description: "Une côte atlantique peu connue au sud de l'estuaire de la Loire. Forêt de pins jusqu'à la plage, très calme hors été.",
+        activites: [
+          "Promenade sur la plage (accessible, plate) 🟢 Gratuit",
+          "Sentier des douaniers entre Saint-Brevin et Mindin 🟢 Gratuit",
+          "Pont de Saint-Nazaire (vue depuis la rive) 🟢 Gratuit",
+          "Villa mon rêve (architecture Belle Époque) 🟢 Gratuit (extérieur)",
+          "Marché de Saint-Brevin (mardi et samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Plages accessibles aux chiens hors saison (avant juin, après septembre). Sentier côtier sans restriction. Forêt de pins entre mer et route." },
+        van: "Parking camping-car en bord de plage (gratuit hors saison). Routes sans difficulté.",
+        aires: ["Aire de Saint-Brevin (gratuite, eau)", "Parking plage (gratuit hors saison)"],
+        astuce: "La forêt de pins entre les maisons et la plage crée une atmosphère très particulière, douce et reposante."
+      }
+    ],
+
+    montagne: [
+      {
+        nom: "Gorges de la Creuse — Fresselines", region: "Creuse", foule: "calme",
+        description: "Des gorges sauvages et encaissées, peintes par Monet. Village de Fresselines suspendu au-dessus de la confluence. Paysages dramatiques.",
+        activites: [
+          "Point de vue depuis Fresselines (accès voiture) 🟢 Gratuit",
+          "Promenade sur les bords de Creuse (chemin court et accessible) 🟢 Gratuit",
+          "Village de Crozant et ses ruines (château médiéval spectaculaire) 🟢 Gratuit",
+          "Maison Monet à Fresselines 🔴 Payant (~4€/pers.)",
+          "Marché d'Aubusson (vendredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chemins de gorges accessibles en laisse. Pas de restrictions. Eau claire en bas des gorges." },
+        van: "Routes de gorges praticables. Parking à Fresselines et Crozant gratuits.",
+        aires: ["Parking Crozant (gratuit)", "Aire de Guéret (gratuite, proche)"],
+        astuce: "Les ruines du château de Crozant dominant les gorges sont l'un des sites les plus spectaculaires du Centre-France."
+      }
+    ]
+  },
+
+  // ===========================
+  // DORDOGNE
+  // ===========================
   'dordogne': {
     campagne: [
       {
-        nom: "Double & Landais — entre Ribérac et Mussidan",
-        region: "Dordogne",
-        foule: "calme",
-        description: "Le Périgord que personne ne visite. Forêts de chênes et de pins, étangs de pêche, petits hameaux. Pas un château, pas un touriste — juste la campagne française dans sa plus simple beauté.",
-        activites: ["Randonnée libre dans les forêts de la Double", "Baignade dans les étangs naturels", "Marchés locaux à Ribérac (vendredi)", "Observation de cerfs en forêt (automne)"],
-        chiens: { ok: true, detail: "✅ Terrain idéal pour les chiens. Chemins forestiers larges, peu de passage. Étangs parfaits pour se baigner. Attention aux sangliers à l'aube et au crépuscule." },
-        van: "Routes forestières larges et dégagées. Stationnement libre dans de nombreux endroits.",
-        aires: ["Aire de Ribérac (gratuite)", "Bords d'étangs (bivouac possible, discret)"],
-        astuce: "Le marché de Ribérac est l'un des meilleurs marchés de campagne de la région — vivant, local, sans chichi."
+        nom: "Double & Landais — entre Ribérac et Mussidan", region: "Dordogne", foule: "calme",
+        description: "Le Périgord que personne ne visite. Forêts de chênes et de pins, étangs de pêche, petits hameaux. Aucun château, aucun touriste.",
+        activites: [
+          "Promenade dans les forêts de la Double (chemins plats) 🟢 Gratuit",
+          "Marché de Ribérac (vendredi matin, très animé) 🟢 Gratuit",
+          "Visite de l'église de Saint-Privat-des-Prés (romane méconnue) 🟢 Gratuit",
+          "Baignade dans les étangs naturels 🟢 Gratuit",
+          "Village de Mussidan et son musée des Arts et Traditions 🔴 Payant (~4€)"
+        ],
+        chiens: { ok: true, detail: "✅ Terrain idéal pour les chiens. Chemins forestiers larges, peu de passage. Étangs parfaits pour se baigner." },
+        van: "Routes forestières larges. Stationnement libre dans de nombreux endroits.",
+        aires: ["Aire de Ribérac (gratuite)", "Étangs (bivouac possible, discret)"],
+        astuce: "Le marché de Ribérac est l'un des meilleurs marchés de campagne de la région."
+      },
+      {
+        nom: "Périgord Vert — Vallée de la Dronne", region: "Dordogne Nord", foule: "calme",
+        description: "Le Périgord le plus au nord, vert et vallonné. La Dronne serpente entre des prairies normandes et des châteaux oubliés. Très calme.",
+        activites: [
+          "Village de Brantôme et son abbaye (le Venise du Périgord) 🟢 Gratuit (extérieur) / Abbaye payante",
+          "Promenade en barque sur la Dronne à Brantôme 🔴 Payant (~8€/pers.)",
+          "Bords de la Dronne (chemins plats accessibles) 🟢 Gratuit",
+          "Village de Bourdeilles (château et village médiéval) 🔴 Payant (~7€)",
+          "Marché de Brantôme (vendredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de la Dronne idéaux pour les chiens. Promenades plates accessibles." },
+        van: "Routes de vallée accessibles. Parking camping-car à Brantôme.",
+        aires: ["Aire de Brantôme (gratuite, bord de Dronne)", "Parking village (gratuit)"],
+        astuce: "Brantôme est surnommée la Venise du Périgord — ses canaux et son abbaye sont superbes."
+      },
+      {
+        nom: "Bastides du Périgord Pourpre — autour de Monpazier", region: "Dordogne Sud", foule: "calme",
+        description: "Les bastides médiévales les mieux conservées de France, dans un paysage de bois et de prairies. Monpazier est un chef-d'œuvre d'urbanisme médiéval.",
+        activites: [
+          "Village de Monpazier (place à arcades inchangée depuis le XIIIe) 🟢 Gratuit",
+          "Village de Beaumont-du-Périgord (bastide anglaise) 🟢 Gratuit",
+          "Marché de Monpazier (jeudi matin en été) 🟢 Gratuit",
+          "Promenade dans les bois alentour (courts chemins) 🟢 Gratuit",
+          "Château de Biron (panorama exceptionnel) 🔴 Payant (~8€)"
+        ],
+        chiens: { ok: true, detail: "✅ Villages et chemins accessibles en laisse. Peu de circulation dans les bastides." },
+        van: "Routes de bastides praticables. Parking en entrée de Monpazier.",
+        aires: ["Aire de Monpazier (gratuite)", "Parking village (gratuit)"],
+        astuce: "Monpazier est l'une des bastides les mieux conservées d'Europe — aucun ajout moderne dans la place centrale."
+      },
+      {
+        nom: "Périgord Noir — Autour de Domme", region: "Dordogne", foule: "moyen",
+        description: "Une bastide perchée avec la plus belle vue sur la Dordogne. Les alentours sont moins fréquentés que Sarlat avec des paysages identiques.",
+        activites: [
+          "Point de vue de Domme sur la vallée de la Dordogne 🟢 Gratuit",
+          "Grottes de Domme (stalactites accessibles) 🔴 Payant (~9€/pers.)",
+          "Village de La Roque-Gageac (au pied de la falaise) 🟢 Gratuit",
+          "Promenade en gabare sur la Dordogne 🔴 Payant (~12€/pers.)",
+          "Marché de Domme (jeudi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Village et bords de Dordogne accessibles en laisse. Gabarres : chiens souvent acceptés, à confirmer." },
+        van: "Route d'accès à Domme avec une rampe — vérifiez la longueur de votre van. Parking en bas du village.",
+        aires: ["Aire de Domme (gratuite, vue)", "Parking bords de Dordogne (gratuit hors saison)"],
+        astuce: "Le point de vue depuis les remparts de Domme sur la Dordogne est le plus beau de toute la vallée."
+      },
+      {
+        nom: "Vallée de la Vézère — Les Eyzies", region: "Dordogne", foule: "moyen",
+        description: "La 'Vallée de l'homme', avec les plus importantes grottes préhistoriques du monde. Les sites extérieurs sont gratuits et magnifiques.",
+        activites: [
+          "Musée national de Préhistoire des Eyzies 🔴 Payant (~6€/pers.)",
+          "Abri du Cap Blanc (sculptures préhistoriques) 🔴 Payant (~8€/pers.)",
+          "Village des Eyzies (sous la falaise) 🟢 Gratuit",
+          "Bords de la Vézère (promenade plate) 🟢 Gratuit",
+          "Village de Saint-Léon-sur-Vézère (romanesque) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de Vézère accessibles. Chiens non admis dans les grottes mais acceptés à l'extérieur." },
+        van: "Parking bien dimensionné aux Eyzies. Route de vallée sans difficulté.",
+        aires: ["Aire des Eyzies (gratuite)", "Camping de la Vézère (animaux ok)"],
+        astuce: "Saint-Léon-sur-Vézère est l'un des Plus Beaux Villages de France, calme et magnifique."
       }
     ],
+
     lac: [
       {
-        nom: "Lac de Gurson",
-        region: "Dordogne — Pays de Gurson",
-        foule: "calme",
-        description: "Un lac propre entouré de vignes et de collines. Très peu fréquenté sauf en plein été. Les ruines du château de Gurson surplombent la scène — un décor de carte postale sans les foules.",
-        activites: ["Baignade (plage surveillée en été)", "Randonnée autour du lac et vers le château", "Pédalos et barques", "Route des vins de Bergerac à proximité"],
-        chiens: { ok: true, detail: "✅ Chiens autorisés autour du lac et sur les sentiers. Zone hors baignade surveillée : les chiens peuvent se baigner librement. Ombre disponible." },
+        nom: "Lac de Gurson", region: "Dordogne — Pays de Gurson", foule: "calme",
+        description: "Un lac propre entouré de vignes et de collines. Très peu fréquenté sauf en plein été. Ruines du château surplombant la scène.",
+        activites: [
+          "Baignade sur la plage surveillée (été) 🟢 Gratuit",
+          "Promenade autour du lac (chemin plat, accessible) 🟢 Gratuit",
+          "Château de Gurson (ruines, point de vue) 🟢 Gratuit",
+          "Pédalos et barques (location été) 🔴 Payant (~8€/heure)",
+          "Dégustation vins de Bergerac à proximité 🔴 Payant (achat)"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens autorisés autour du lac et sur les sentiers. Baignade canine libre hors zone surveillée." },
         van: "Grand parking gratuit. Accès aisé depuis la D38.",
-        aires: ["Camping du Lac de Gurson (animaux ok)", "Aire de Villefranche-de-Lonchat"],
+        aires: ["Camping du Lac de Gurson (animaux ok)", "Aire de Villefranche-de-Lonchat (gratuite)"],
         astuce: "En septembre, les vignes sont dorées et le lac presque désert. Moment magique."
+      },
+      {
+        nom: "Lac de Rouffiac", region: "Lot (proche Dordogne)", foule: "calme",
+        description: "Un lac de collines du Quercy Blanc, entouré de causses et de cultures. Eau calme et propre, très peu fréquenté.",
+        activites: [
+          "Baignade sur la plage naturelle 🟢 Gratuit",
+          "Tour du lac à pied (1h, accessible) 🟢 Gratuit",
+          "Village de Castelnau-Montratier (bastide, point de vue) 🟢 Gratuit",
+          "Marché de Cahors (samedi matin) 🟢 Gratuit",
+          "Vins de Cahors aux caves locales 🔴 Payant (achat)"
+        ],
+        chiens: { ok: true, detail: "✅ Lac calme, rives naturelles. Excellent pour les chiens. Peu de monde." },
+        van: "Accès simple. Parking en bord de lac (gratuit).",
+        aires: ["Parking lac (gratuit)", "Aire de Cahors (gratuite)"],
+        astuce: "Les vins de Cahors sont méconnus hors de la région — à découvrir directement chez les producteurs."
       }
     ],
+
     village: [
       {
-        nom: "Belvès & Pays de Bessède",
-        region: "Dordogne — Périgord Noir",
-        foule: "calme",
-        description: "Une bastide médiévale perchée, rare encore authentique, et un pays de forêts de châtaigniers entre les vallées de la Dordogne et du Lot. Beaucoup moins fréquenté que Sarlat.",
-        activites: ["Visite de Belvès et ses troglodytes habités (unique en France)", "Randonnées en Forêt de la Bessède", "Baignade dans le Céou", "Abbaye de Cadouin à proximité"],
-        chiens: { ok: true, detail: "✅ Village et sentiers accessibles aux chiens. La forêt de la Bessède est un terrain de jeu magnifique pour eux. Quelques restrictions dans le centre médiéval en haute saison." },
-        van: "Parking van/camping-car indiqué à l'entrée de Belvès. Forêt accessible via routes forestières.",
-        aires: ["Aire de Belvès (gratuite, vue sur vallée)", "Camping la Filature à Loubéjac"],
-        astuce: "À 30 km de Sarlat avec 90% de tranquillité en plus. Le bon compromis Périgord Noir."
+        nom: "Belvès & Pays de Bessède", region: "Périgord Noir", foule: "calme",
+        description: "Une bastide médiévale perchée, rare encore authentique. Beaucoup moins fréquentée que Sarlat.",
+        activites: [
+          "Village de Belvès (ruelles médiévales, facile à parcourir) 🟢 Gratuit",
+          "Habitations troglodytes de Belvès (visite guidée) 🔴 Payant (~6€/pers.)",
+          "Abbaye de Cadouin (cloître magnifique) 🔴 Payant (~6€/pers.)",
+          "Bords du Céou (baignade, chemin plat) 🟢 Gratuit",
+          "Marché de Belvès (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Village et sentiers accessibles en laisse. La forêt de la Bessède est un terrain de jeu magnifique pour eux." },
+        van: "Parking van indiqué à l'entrée de Belvès. Forêt accessible via routes forestières.",
+        aires: ["Aire de Belvès (gratuite, vue sur vallée)", "Camping la Filature (animaux ok)"],
+        astuce: "À 30 km de Sarlat avec 90% de tranquillité en plus."
+      },
+      {
+        nom: "Issigeac — Bastide du Périgord Pourpre", region: "Dordogne", foule: "calme",
+        description: "Un village médiéval circulaire absolument intact, entouré de vignes de Bergerac. Marché dominical réputé. Presque aucun touriste en semaine.",
+        activites: [
+          "Promenade dans le village circulaire (facile, accessible) 🟢 Gratuit",
+          "Marché d'Issigeac (dimanche matin, excellent) 🟢 Gratuit",
+          "Église gothique d'Issigeac 🟢 Gratuit",
+          "Dégustation de Bergerac chez les vignerons 🔴 Payant (achat)",
+          "Village de Monbazillac et son château 🔴 Payant (~6€/pers.)"
+        ],
+        chiens: { ok: true, detail: "✅ Village accessible en laisse. Peu de circulation. Vignobles alentour accessibles." },
+        van: "Parking en entrée de village (gratuit). Accès simple.",
+        aires: ["Aire d'Issigeac (gratuite)", "Parking village (gratuit)"],
+        astuce: "Le marché dominical d'Issigeac est un des plus beaux de la région — vivant et local."
+      }
+    ],
+
+    foret: [
+      {
+        nom: "Forêt Barade & Château de l'Herm", region: "Périgord Noir", foule: "calme",
+        description: "Une grande forêt mystérieuse avec les ruines romantiques du château de l'Herm au milieu des bois. Atmosphère unique.",
+        activites: [
+          "Promenade en forêt de Barade (allées larges) 🟢 Gratuit",
+          "Château de l'Herm (ruines dans la forêt, accès libre) 🟢 Gratuit",
+          "Village du Bugue (marché le mardi) 🟢 Gratuit",
+          "Aquarium du Périgord Noir au Bugue 🔴 Payant (~10€/pers.)",
+          "Gouffre de Proumeyssac (géode souterraine) 🔴 Payant (~11€)"
+        ],
+        chiens: { ok: true, detail: "✅ Forêt très accessible pour les chiens. Château de l'Herm : accès libre, chiens bienvenus." },
+        van: "Routes forestières accessibles. Parking au Bugue.",
+        aires: ["Aire du Bugue (gratuite)", "Camping de la Forêt (animaux ok)"],
+        astuce: "Le château de l'Herm en pleine forêt est un lieu absolument magique, peu connu même des locaux."
+      }
+    ],
+
+    mer: [
+      {
+        nom: "Bassin d'Arcachon — Côte Sud (hors Arcachon)", region: "Gironde", foule: "moyen",
+        description: "La partie sud du bassin, moins connue que La Teste ou Arcachon. La Dune du Pilat et les villages ostréicoles du Cap Ferret côté bassin.",
+        activites: [
+          "Dune du Pilat (montée accessible, vue exceptionnelle) 🟢 Gratuit (parking payant en été)",
+          "Village de L'Herbe (ostréiculteurs, chapelle) 🟢 Gratuit",
+          "Dégustation d'huîtres au bord du bassin 🔴 Payant (prix marché)",
+          "Promenade sur les plages du bassin (côté calme) 🟢 Gratuit",
+          "Village de Piraillan (très calme) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Plages du bassin accessibles aux chiens hors saison. Dune du Pilat : chiens acceptés. Villages ostréicoles : en laisse." },
+        van: "Route du Cap Ferret accessible. Parking dune du Pilat (gratuit hors saison).",
+        aires: ["Aire de La Teste-de-Buch (gratuite)", "Parking Dune du Pilat (gratuit hors saison)"],
+        astuce: "Le village de L'Herbe est l'un des derniers villages ostréicoles authentiques du bassin — aucune construction moderne."
+      }
+    ],
+
+    montagne: [
+      {
+        nom: "Gorges de l'Aveyron — Saint-Antonin-Noble-Val", region: "Tarn-et-Garonne", foule: "calme",
+        description: "Des gorges calcaires sauvages entre Quercy et Rouergue. Saint-Antonin est un joyau médiéval au bord de l'Aveyron.",
+        activites: [
+          "Village de Saint-Antonin-Noble-Val (marché le dimanche) 🟢 Gratuit",
+          "Promenade le long de l'Aveyron (chemin plat) 🟢 Gratuit",
+          "Point de vue de Cornusson (accès voiture) 🟢 Gratuit",
+          "Village de Penne (château en ruine sur piton rocheux) 🟢 Gratuit",
+          "Baignade dans l'Aveyron 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de rivière et chemins de gorges très accessibles. Baignade canine possible en de nombreux points." },
+        van: "Route des gorges praticable. Parking à Saint-Antonin.",
+        aires: ["Aire de Saint-Antonin (gratuite, bord d'Aveyron)", "Parking village (gratuit)"],
+        astuce: "Saint-Antonin a le plus vieux bâtiment civil de France (XIe siècle) — et peu le savent."
       }
     ]
   },
+
+  // ===========================
+  // CHARENTE & CREUSE
+  // ===========================
   'charente': {
     campagne: [
       {
-        nom: "Vallée de la Vienne — de Chauvigny à Lussac",
-        region: "Vienne",
-        foule: "calme",
-        description: "À deux pas de Poitiers, une vallée douce et méconnue. Châteaux en ruines sur les hauteurs, rivière calme en contrebas, vignes et prairies. Rien de spectaculaire — juste beau et paisible.",
-        activites: ["Randonnée sur les bords de Vienne", "Baignade (bons spots à Lussac-les-Châteaux)", "Chauvigny et ses châteaux groupés (insolite)", "Marché dominical de Montmorillon"],
-        chiens: { ok: true, detail: "✅ Bords de rivière très accessibles pour les chiens. Peu de foule, pas de restrictions notables. Baignade possible dans la Vienne en plusieurs points." },
-        van: "Routes de vallée sans difficulté. Parkings disponibles dans chaque village.",
-        aires: ["Aire de Lussac-les-Châteaux (gratuite)", "Camping bord de Vienne à Montmorillon"],
+        nom: "Vallée de la Vienne — Chauvigny à Lussac", region: "Vienne", foule: "calme",
+        description: "À deux pas de Poitiers, une vallée douce et méconnue. Châteaux en ruines, rivière calme, vignes et prairies.",
+        activites: [
+          "Chauvigny : 5 châteaux groupés sur un éperon rocheux 🔴 Payant (~7€ visite intérieure) / Extérieur gratuit",
+          "Promenade sur les bords de Vienne (chemin plat) 🟢 Gratuit",
+          "Baignade à Lussac-les-Châteaux 🟢 Gratuit",
+          "Marché de Montmorillon (dimanche matin) 🟢 Gratuit",
+          "Montmorillon — Cité de l'Écrit (librairies et ateliers) 🟢 Gratuit (extérieur)"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de rivière très accessibles. Peu de foule, pas de restrictions notables. Baignade possible." },
+        van: "Routes de vallée sans difficulté. Parkings disponibles.",
+        aires: ["Aire de Lussac-les-Châteaux (gratuite)", "Camping bord de Vienne (animaux ok)"],
         astuce: "Chauvigny regroupe 5 châteaux en ruine côte à côte — spectacle unique et quasi sans touristes hors été."
-      }
-    ],
-    foret: [
+      },
       {
-        nom: "Forêt de Mervent-Vouvant",
-        region: "Vendée intérieure",
-        foule: "calme",
-        description: "Une forêt oubliée au cœur de la Vendée, autour d'un lac artificiel et du village médiéval de Vouvant. On s'y croirait en Sologne du Sud. Idéal pour se perdre deux jours.",
-        activites: ["Randonnée balisée en forêt (45 km de sentiers)", "Kayak sur le lac du Mervent", "Village de Vouvant (clocher roman remarquable)", "Pêche dans les bras du lac"],
-        chiens: { ok: true, detail: "✅ Forêt très accessible. Sentiers larges, peu de passage. Lac et bords d'eau parfaits pour les baignades canines. Laisse conseillée près du village." },
-        van: "Grand parking gratuit au lac. Accès forêt par routes forestières larges.",
-        aires: ["Aire de Fontenay-le-Comte (proche)", "Camping du Lac de Mervent (animaux ok)"],
-        astuce: "Vouvant figure parmi les Plus Beaux Villages de France — mais reste discret et authentique."
+        nom: "Marais Poitevin — Coulon et La Garette", region: "Deux-Sèvres", foule: "moyen",
+        description: "La 'Venise Verte', un labyrinthe de canaux sous les arbres. Le plus accessible des grands espaces naturels de la région.",
+        activites: [
+          "Promenade en barque dans le marais mouillé 🔴 Payant (~12€/pers.)",
+          "Village de Coulon (promenade le long des canaux) 🟢 Gratuit",
+          "Maison du Marais Poitevin à Coulon 🔴 Payant (~5€/pers.)",
+          "Marché de Coulon (dimanche matin) 🟢 Gratuit",
+          "Promenade à pied sur les digues (accessible, plat) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Digues et chemins accessibles en laisse. Barques : chiens souvent acceptés, à confirmer." },
+        van: "Parking à Coulon (gratuit hors saison). Routes du marais accessibles.",
+        aires: ["Aire de Coulon (gratuite, eau)", "Parking bords de Sèvre (libre)"],
+        astuce: "En semaine hors saison, Coulon est calme et magnifique. Le dimanche en été, c'est très fréquenté."
+      },
+      {
+        nom: "Pays Mellois — Entre Melle et Sauzé-Vaussais", region: "Deux-Sèvres", foule: "calme",
+        description: "Un bocage authentique du centre-Poitou, avec des villages romans remarquables et une campagne intacte. Très peu de touristes.",
+        activites: [
+          "Mines d'argent de Melle (unique en Europe, visite guidée) 🔴 Payant (~8€/pers.)",
+          "Promenade dans Melle et ses 3 églises romanes 🟢 Gratuit",
+          "Village de Chef-Boutonne (marché le lundi) 🟢 Gratuit",
+          "Bords de la Béronne (rivière calme) 🟢 Gratuit",
+          "Château de Dampierre-sur-Boutonne 🔴 Payant (~6€)"
+        ],
+        chiens: { ok: true, detail: "✅ Bocage et bords de rivière idéaux. Peu de monde, chemins tranquilles." },
+        van: "Routes de bocage praticables. Parking à Melle.",
+        aires: ["Aire de Melle (gratuite)", "Parking centre-ville (gratuit)"],
+        astuce: "Les mines d'argent carolingiennes de Melle sont les seules visitables en Europe — fascinant."
+      },
+      {
+        nom: "Charente Limousine — Confolens", region: "Charente", foule: "calme",
+        description: "Une ville médiévale sur la Vienne, entourée de forêts et de vallons. Festival de musique folk réputé en août, mais calme le reste du temps.",
+        activites: [
+          "Vieux pont de Confolens et centre médiéval 🟢 Gratuit",
+          "Promenade sur les bords de la Vienne 🟢 Gratuit",
+          "Abbaye de Lesterps (architecture romane remarquable) 🟢 Gratuit",
+          "Marché de Confolens (samedi matin) 🟢 Gratuit",
+          "Vallée du Goire (paysages sauvages) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de Vienne et forêts accessibles. Peu de monde, espaces verts." },
+        van: "Accès simple. Parking gratuit au bord de la Vienne.",
+        aires: ["Aire de Confolens (gratuite, eau)", "Parking bords de Vienne (libre)"],
+        astuce: "Confolens hors festival est une ville médiévale authentique et presque déserte."
+      },
+      {
+        nom: "Cognac et la Charente — Entre Saintes et Cognac", region: "Charente", foule: "calme",
+        description: "La vallée de la Charente entre deux villes d'art et d'histoire. Vignobles de cognac, péniches, lumière chaude.",
+        activites: [
+          "Visite de chais à Cognac (Hennessy, Martell) 🔴 Payant (~15-20€/pers.)",
+          "Promenade sur les bords de Charente (chemin plat, accessible) 🟢 Gratuit",
+          "Vieux Saintes et arènes romaines 🟢 Gratuit",
+          "Arc de Germanicus à Saintes 🟢 Gratuit",
+          "Marché de Saintes (mercredi et samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de Charente idéaux. Vignobles accessibles en laisse. Saintes : centre praticable." },
+        van: "Routes de vignoble sans difficulté. Aire à Cognac bien placée.",
+        aires: ["Aire de Cognac (gratuite, eau)", "Parking bords de Charente (libre)"],
+        astuce: "Les chais Hennessy à Cognac organisent une visite exceptionnelle avec vue sur la Charente depuis les entrepôts."
       }
     ],
+
     lac: [
       {
-        nom: "Lac de Vassivière",
-        region: "Creuse / Haute-Vienne",
-        foule: "calme",
-        description: "Un immense lac artificiel en Limousin, entouré de forêts de sapins et de landes. Une île centrale avec un centre d'art contemporain surprenant. Très peu connu hors de la région.",
-        activites: ["Tour du lac à vélo (30 km de piste)", "Baignade dans plusieurs plages naturelles", "Randonnée sur l'île de Vassivière", "Kayak et planche à voile"],
-        chiens: { ok: true, detail: "✅ Terrain idéal pour les chiens. Plages naturelles accessibles, bords du lac libres. Laisse obligatoire sur l'île. Eau claire et peu profonde dans les anses." },
-        van: "Grand parking au Bourg de Vassivière. Tour du lac accessible en van pour rejoindre les plages.",
+        nom: "Lac de Vassivière", region: "Creuse/Haute-Vienne", foule: "calme",
+        description: "Un immense lac artificiel en Limousin, entouré de forêts de sapins. Île centrale avec un centre d'art contemporain surprenant.",
+        activites: [
+          "Tour du lac à vélo (30 km de piste cyclable) 🟢 Gratuit",
+          "Plages naturelles du lac (plusieurs accessibles en voiture) 🟢 Gratuit",
+          "Centre d'art de l'île de Vassivière 🔴 Payant (~4€/pers.)",
+          "Kayak et planche à voile (location en été) 🔴 Payant",
+          "Promenade sur l'île (bateau-passeur) 🔴 Payant (~4€/aller-retour)"
+        ],
+        chiens: { ok: true, detail: "✅ Terrain idéal pour les chiens. Plages naturelles accessibles, bords du lac libres. Laisse obligatoire sur l'île." },
+        van: "Grand parking au Bourg de Vassivière. Tour du lac accessible en van.",
         aires: ["Aire de Royère-de-Vassivière (gratuite)", "Camping des Terrasses du Lac (animaux ok)"],
         astuce: "En dehors de juillet-août, ce lac de 1 000 ha est quasi désert. Un trésor limousin."
+      },
+      {
+        nom: "Lac de Saint-Pardoux", region: "Haute-Vienne", foule: "calme",
+        description: "Un grand lac artificiel limousin entouré de forêts de bouleaux et de landes. Eaux claires, plages naturelles, pistes cyclables.",
+        activites: [
+          "Baignade sur la plage de Compreignac 🟢 Gratuit",
+          "Tour du lac à vélo (25 km) 🟢 Gratuit",
+          "Observation des oiseaux (hérons, grèbes) 🟢 Gratuit",
+          "Pêche sur les berges 🔴 Nécessite permis",
+          "Marché de Saint-Junien (mardi et samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Excellent pour les chiens. Rives naturelles, peu de monde. Baignade canine libre hors zones aménagées." },
+        van: "Parking gratuit en bord de lac. Accès simple.",
+        aires: ["Aire de Saint-Junien (gratuite)", "Camping du Lac (animaux ok)"],
+        astuce: "Saint-Pardoux est moins connu que Vassivière mais tout aussi beau et plus tranquille."
+      },
+      {
+        nom: "Lac de la Haute-Vienne — Sénamaud", region: "Haute-Vienne", foule: "calme",
+        description: "Un petit lac discret dans les collines limousines, entouré de bois de châtaigniers. Calme absolu, plage herbeuse, eau chaude en été.",
+        activites: [
+          "Baignade sur la plage herbeuse 🟢 Gratuit",
+          "Promenade autour du lac (chemin facile) 🟢 Gratuit",
+          "Village de Châteauneuf-la-Forêt (point de vue) 🟢 Gratuit",
+          "Pêche à la truite 🔴 Nécessite permis",
+          "Pique-nique sous les châtaigniers 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Idéal. Peu de monde, nature douce. Baignade libre." },
+        van: "Accès simple. Parking en bord de lac (gratuit).",
+        aires: ["Parking lac (gratuit)", "Aire de Limoges (gratuite, proche)"],
+        astuce: "Un coin presque secret, même pour les Limousins."
+      }
+    ],
+
+    foret: [
+      {
+        nom: "Forêt de Mervent-Vouvant", region: "Vendée intérieure", foule: "calme",
+        description: "Une forêt oubliée au cœur de la Vendée, autour d'un lac et du village médiéval de Vouvant. Idéal pour 2 jours.",
+        activites: [
+          "Village de Vouvant (clocher roman, ruelles médiévales) 🟢 Gratuit",
+          "Tour du lac de Mervent (chemin accessible, 5 km) 🟢 Gratuit",
+          "Kayak sur le lac (location) 🔴 Payant (~12€/heure)",
+          "Maison de la Meunière à Mervent 🔴 Payant (~4€/pers.)",
+          "Pêche dans les bras du lac 🔴 Nécessite permis"
+        ],
+        chiens: { ok: true, detail: "✅ Forêt très accessible. Lac et bords d'eau parfaits pour les baignades canines. Laisse conseillée près du village." },
+        van: "Grand parking gratuit au lac. Accès forêt par routes larges.",
+        aires: ["Aire de Fontenay-le-Comte (proche)", "Camping du Lac (animaux ok)"],
+        astuce: "Vouvant figure parmi les Plus Beaux Villages de France et reste discret et authentique."
+      },
+      {
+        nom: "Forêt de la Braconne", region: "Charente", foule: "calme",
+        description: "La plus grande forêt de la région charentaise, traversée de dolmens et de menhirs. Un patrimoine préhistorique remarquable en plein bois.",
+        activites: [
+          "Promenade sur les allées forestières (larges et planes) 🟢 Gratuit",
+          "Dolmens et menhirs de la Braconne (sentier préhistorique) 🟢 Gratuit",
+          "Village de La Rochefoucauld (château-palais Renaissance) 🔴 Payant (~9€/pers.)",
+          "Bords de la Tardoire (rivière claire) 🟢 Gratuit",
+          "Marché de La Rochefoucauld (vendredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Forêt idéale pour les chiens. Allées larges, peu de passage. Bords de Tardoire accessibles." },
+        van: "Allées forestières accessibles. Parking à l'entrée de la forêt.",
+        aires: ["Aire de La Rochefoucauld (gratuite)", "Parking forêt (libre)"],
+        astuce: "La Rochefoucauld est un château-palais absolument magnifique — et bien moins visité que les châteaux de Loire."
+      }
+    ],
+
+    village: [
+      {
+        nom: "La Rochelle — Vieux Port (hors juillet-août)", region: "Charente-Maritime", foule: "touristique",
+        description: "⚠️ ZONE TOURISTIQUE — À éviter en juillet-août. Hors saison, une des plus belles villes françaises, avec ses tours médiévales et son vieux port.",
+        activites: [
+          "Vieux port et tours médiévales (extérieur) 🟢 Gratuit / Tours payantes (~6€/pers.)",
+          "Quartier du Gabut (maisons colorées sur l'eau) 🟢 Gratuit",
+          "Marché du Vieux Port (matin, tous les jours) 🟢 Gratuit",
+          "Aquarium de La Rochelle 🔴 Payant (~18€/pers.)",
+          "Promenade sur les remparts 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Vieux port et remparts accessibles en laisse. Plages hors saison ouvertes aux chiens." },
+        van: "Aires camping-car en périphérie. Centre en navette ou à vélo.",
+        aires: ["Aire de La Rochelle Périgny (gratuite)", "Parking périphérique + navette (payant)"],
+        astuce: "En novembre ou mars, La Rochelle est magnifique et presque vide. C'est là qu'elle se révèle vraiment."
+      },
+      {
+        nom: "Aulnay-de-Saintonge — L'église romane", region: "Charente-Maritime", foule: "calme",
+        description: "Un village campagnard ordinaire qui abrite l'une des plus belles églises romanes de France, avec des sculptures sur portail absolument extraordinaires.",
+        activites: [
+          "Église Saint-Pierre (chef-d'œuvre roman poitevin) 🟢 Gratuit",
+          "Promenade dans le village et son marché (samedi) 🟢 Gratuit",
+          "Bords de la Boutonne (rivière calme) 🟢 Gratuit",
+          "Village de Saint-Jean-d'Angély (collégiale, promenade) 🟢 Gratuit",
+          "Marché de Saint-Jean-d'Angély (mercredi et samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Village et bords de Boutonne accessibles. Peu de monde, calme." },
+        van: "Parking gratuit devant l'église. Accès simple.",
+        aires: ["Aire de Saint-Jean-d'Angély (gratuite)", "Parking village (gratuit)"],
+        astuce: "Les sculptures du portail d'Aulnay sont parmi les plus belles de tout l'art roman français. Prenez le temps de les observer."
+      }
+    ],
+
+    mer: [
+      {
+        nom: "Île d'Oléron — Côte Sauvage", region: "Charente-Maritime", foule: "moyen",
+        description: "L'île la plus grande de France métropolitaine après la Corse. Sa côte sauvage ouest est ventée et peu fréquentée, même en été.",
+        activites: [
+          "Côte Sauvage (falaises et plages désertes) 🟢 Gratuit",
+          "Village de La Cotinière (port de pêche authentique) 🟢 Gratuit",
+          "Fort Boyard (vue depuis la côte) 🟢 Gratuit",
+          "Marché de Saint-Pierre-d'Oléron (quotidien en été) 🟢 Gratuit",
+          "Citadelle du Château-d'Oléron 🔴 Payant (~4€/pers.)"
+        ],
+        chiens: { ok: true, detail: "✅ Côte sauvage très accessible aux chiens. Plages nord et sud autorisées hors saison. Laisse en agglomération." },
+        van: "Pont d'accès gratuit. Parkings bien dimensionnés. Réseau de routes adapté.",
+        aires: ["Aire du Château-d'Oléron (gratuite)", "Camping Les Gros Joncs (animaux ok)"],
+        astuce: "La côte sauvage d'Oléron est beaucoup moins fréquentée que la côte est. Prenez la D734 ouest."
+      },
+      {
+        nom: "Marennes-Oléron — Bassin ostréicole", region: "Charente-Maritime", foule: "calme",
+        description: "Le premier bassin ostréicole de France. Des cabanes colorées, des claires, des paysages de marais. Calme et photogénique.",
+        activites: [
+          "Cité de l'Huître à Marennes 🔴 Payant (~9€/pers.)",
+          "Promenade sur les diguettes des claires (chemin plat) 🟢 Gratuit",
+          "Dégustation d'huîtres directement chez les producteurs 🔴 Payant (prix marché)",
+          "Marché de Marennes (mercredi et samedi) 🟢 Gratuit",
+          "Pont de l'île d'Oléron (vue panoramique depuis le pont) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Diguettes et bords de marais accessibles en laisse. Peu de monde hors été." },
+        van: "Routes de marais très accessibles. Parking à Marennes.",
+        aires: ["Aire de Marennes (gratuite, eau)", "Parking bords de marais (libre)"],
+        astuce: "Les huîtres de Marennes-Oléron sont parmi les meilleures du monde — directement chez le producteur, c'est une tout autre expérience."
+      }
+    ],
+
+    montagne: [
+      {
+        nom: "Plateau de Millevaches — Corrèze", region: "Corrèze/Creuse", foule: "calme",
+        description: "Un plateau sauvage à 1 000m d'altitude, couvert de tourbières et de forêts de bouleaux. Un des espaces les plus préservés de France.",
+        activites: [
+          "Point de vue de la Croix de Chier (accès voiture) 🟢 Gratuit",
+          "Sources de la Vézère et de la Creuse (accessibles à pied) 🟢 Gratuit",
+          "Village de Meymac (vieilles pierres, marché le lundi) 🟢 Gratuit",
+          "Abbaye de Meymac (romane, visite possible) 🟢 Gratuit",
+          "Observation des tourbières (unique en France) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Immensité et liberté pour les chiens. Laisse conseillée près des zones de tourbières (terrain fragile)." },
+        van: "Routes de plateau accessibles. Vents parfois forts. Stationnement partout.",
+        aires: ["Aire de Meymac (gratuite)", "Parking plateau (libre)"],
+        astuce: "Le Plateau de Millevaches est le château d'eau de la France — toutes les grandes rivières du Centre-France y prennent leur source."
       }
     ]
   },
+
+  // ===========================
+  // LANDES & GIRONDE
+  // ===========================
   'landes': {
     foret: [
       {
-        nom: "Forêt des Landes — entre Sabres et Mimizan",
-        region: "Landes",
-        foule: "calme",
-        description: "La plus grande forêt artificielle d'Europe. Des kilomètres de pins maritimes, des routes droites à l'infini, l'air sent la résine. Un dépaysement total, avec très peu de monde.",
-        activites: ["Vélo sur les pistes cyclables de la forêt (des centaines de km)", "Écomusée de la Grande Lande à Marquèze", "Baignade dans les courants et étangs forestiers", "Cueillette de champignons en automne"],
-        chiens: { ok: true, detail: "✅ Paradis absolu pour les chiens. Immensité, peu de monde, pistes cyclables sécurisées. Quelques courants (ruisseaux landais) pour qu'ils se rafraîchissent. Attention aux tiques en forêt." },
+        nom: "Forêt des Landes — autour de Sabres et Luxey", region: "Landes", foule: "calme",
+        description: "La plus grande forêt artificielle d'Europe. Des kilomètres de pins maritimes, des routes droites, l'air sent la résine.",
+        activites: [
+          "Écomusée de la Grande Lande à Marquèze (train à vapeur, village XIXe) 🔴 Payant (~12€/pers.)",
+          "Pistes cyclables en forêt (des centaines de km) 🟢 Gratuit",
+          "Village de Luxey et son moulin à huile de résine 🔴 Payant (~4€/pers.)",
+          "Promenade sur les sentiers de résiniers 🟢 Gratuit",
+          "Observation des oiseaux forestiers (pics, sitelles) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Paradis absolu pour les chiens. Immensité, peu de monde, pistes cyclables sécurisées. Attention aux tiques en forêt." },
         van: "Routes forestières très larges et rectilignes. Stationnement facile partout.",
-        aires: ["Aire de Sabres (gratuite)", "Parking forêt de Luxey (bivouac discret possible)"],
-        astuce: "L'Écomusée de Marquèze est unique en France : un village landais du XIXe recréé à l'identique, accessible par train à vapeur."
+        aires: ["Aire de Sabres (gratuite)", "Parking forêt de Luxey (libre)"],
+        astuce: "L'Écomusée de Marquèze est unique en France : un village landais du XIXe accessible par train à vapeur."
+      },
+      {
+        nom: "Forêt de la Teste-de-Buch", region: "Gironde", foule: "calme",
+        description: "Entre la Dune du Pilat et le Bassin d'Arcachon, une forêt de pins centenaires avec des sentiers accessibles et des odeurs incomparables.",
+        activites: [
+          "Promenade sur les sentiers forestiers (plat, accessible) 🟢 Gratuit",
+          "Accès à la Dune du Pilat (15 min depuis la forêt) 🟢 Gratuit (parking payant en été)",
+          "Village de La Teste-de-Buch (marché le jeudi) 🟢 Gratuit",
+          "Pistes cyclables vers le Cap Ferret 🟢 Gratuit",
+          "Dégustation d'huîtres au port de La Teste 🔴 Payant"
+        ],
+        chiens: { ok: true, detail: "✅ Forêt très accessible. Sentiers ombragés idéaux en été. Dune du Pilat : chiens acceptés." },
+        van: "Parking forêt (gratuit hors saison). Route d'accès simple.",
+        aires: ["Aire de La Teste (gratuite)", "Parking forêt (gratuit hors saison)"],
+        astuce: "La forêt entre la dune et la mer crée un microclimat particulier — fraîcheur même en plein été."
+      },
+      {
+        nom: "Landes de Gascogne — Boucles de l'Adour", region: "Landes Sud", foule: "calme",
+        description: "La partie méridionale des Landes, où les forêts de pins laissent place à des landes ouvertes et à l'Adour. Paysages variés et calmes.",
+        activites: [
+          "Promenade sur les boucles de l'Adour (chemin plat) 🟢 Gratuit",
+          "Village de Dax et ses thermes (architecture Belle Époque) 🟢 Gratuit",
+          "Arènes de Dax (spectacle taurin local, si intéressé) 🔴 Payant",
+          "Marché de Dax (lundi matin) 🟢 Gratuit",
+          "Musée de Borda à Dax 🔴 Payant (~3€)"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de l'Adour et landes idéaux. Peu de monde, espaces verts. Dax : ville accessible en laisse." },
+        van: "Dax bien équipée pour camping-cars. Accès facile.",
+        aires: ["Aire de Dax (gratuite, eau)", "Parking bords d'Adour (libre)"],
+        astuce: "Dax est la capitale thermale des Landes — calme hors cure, avec un marché excellent."
       }
     ],
+
     mer: [
       {
-        nom: "Côte Sauvage entre Mimizan et Biscarrosse",
-        region: "Landes",
-        foule: "calme",
-        description: "80 km de plages sauvages sans construction, sans lotissements. Des accès par des sentiers en forêt, une mer puissante, un vent du large. Hors juillet-août, une solitude remarquable.",
-        activites: ["Randonnée sur le sentier côtier", "Baignade (attention aux courants — plages surveillées l'été)", "Observation des dunes actives", "Surf ou observation des surfeurs à Mimizan"],
-        chiens: { ok: true, detail: "⚠️ Chiens autorisés sur la grande majorité de la plage sauvage hors zone surveillée. En été, certaines zones surveillées les interdisent. Hors saison : totale liberté. Eau puissante : surveiller les chiens novices." },
-        van: "Parkings d'accès aux plages bien dimensionnés pour camping-cars. Gratuits hors saison.",
+        nom: "Côte Sauvage — Mimizan à Biscarrosse", region: "Landes", foule: "calme",
+        description: "80 km de plages sauvages sans construction. Accès par sentiers en forêt, mer puissante, vent du large. Hors juillet-août, solitude remarquable.",
+        activites: [
+          "Plage de Contis-les-Bains (la plus belle, accessible en voiture) 🟢 Gratuit",
+          "Promenade sur le sentier côtier 🟢 Gratuit",
+          "Phare de Contis (visite en été) 🔴 Payant (~4€/pers.)",
+          "Marché de Mimizan (mercredi et samedi) 🟢 Gratuit",
+          "Observation des dunes actives 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "⚠️ Chiens autorisés sur la grande majorité de la plage sauvage hors zone surveillée. Eau puissante : surveiller les chiens novices." },
+        van: "Parkings d'accès aux plages bien dimensionnés. Gratuits hors saison.",
         aires: ["Aire de Mimizan-Plage (services complets)", "Parking accès plage de Contis (sauvage possible)"],
-        astuce: "La plage de Contis-les-Bains est la plus belle et la plus sauvage. En mai ou septembre : que du bonheur."
+        astuce: "La plage de Contis est la plus belle et la plus sauvage. En mai ou septembre : pur bonheur."
+      },
+      {
+        nom: "Hossegor — Côte hors saison", region: "Landes", foule: "moyen",
+        description: "⚠️ Très fréquenté en été. Hors saison, la ville balnéaire art déco des années 30 et son lac marin sont magnifiques et presque déserts.",
+        activites: [
+          "Lac marin d'Hossegor (promenade autour, chemin plat) 🟢 Gratuit",
+          "Villas art déco du centre (balade architecturale) 🟢 Gratuit",
+          "Marché d'Hossegor (mardi, vendredi, dimanche) 🟢 Gratuit",
+          "Plage de l'Estagnot (calme hors saison) 🟢 Gratuit",
+          "Capbreton et son port (marché poissons le matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Plages autorisées aux chiens hors saison (avant juin, après septembre). Tour du lac en laisse toute l'année." },
+        van: "Parking au lac (gratuit hors saison). Hossegor très accessible hors été.",
+        aires: ["Aire de Capbreton (gratuite, eau)", "Parking lac Hossegor (gratuit hors saison)"],
+        astuce: "Hossegor en novembre ou mars est une ville fantôme magnifique — les villas art déco se révèlent sans la foule estivale."
+      },
+      {
+        nom: "Côte de Lumière — Soulac-sur-Mer", region: "Gironde", foule: "calme",
+        description: "L'extrémité nord du Médoc, une station balnéaire Belle Époque à moitié ensablée. Ambiance mélancolique et magnifique hors saison.",
+        activites: [
+          "Basilique Notre-Dame-de-la-Fin-des-Terres (partiellement ensablée) 🟢 Gratuit",
+          "Promenade sur la plage de l'Amélie 🟢 Gratuit",
+          "Architecture Belle Époque du centre (villas) 🟢 Gratuit",
+          "Marché de Soulac (mercredi et samedi) 🟢 Gratuit",
+          "Pointe de Grave et phare de Cordouan (vue depuis la rive) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Plages quasi illimitées hors saison pour les chiens. Ville accessible en laisse." },
+        van: "Accès par la route du Médoc ou ferry depuis Royan. Parking aisé.",
+        aires: ["Aire de Soulac (gratuite, eau)", "Parking plage (gratuit hors saison)"],
+        astuce: "La basilique de Soulac était ensevelie jusqu'au XIXe siècle — son histoire est fascinante."
       }
     ],
+
     lac: [
       {
-        nom: "Lac d'Aureilhan & Étang de Biscarrosse",
-        region: "Landes",
-        foule: "calme",
-        description: "Deux lacs landais reliés, bordés de forêts de pins. Eaux calmes et chaudes dès juin. Moins fréquenté que Lacanau ou Cazaux, pour un résultat presque identique.",
-        activites: ["Baignade et natation", "Pêche au brochet et au sandre", "Tour des lacs à vélo", "Canoë-kayak (location à Mimizan-bourg)"],
-        chiens: { ok: true, detail: "✅ Les chiens peuvent se baigner librement hors des zones aménagées. Les rives naturelles des lacs sont parfaites pour eux. Peu de monde en dehors d'août." },
-        van: "Parking camping-car à Mimizan et autour du lac. Bien indiqué.",
+        nom: "Lac d'Aureilhan & Étang de Biscarrosse", region: "Landes", foule: "calme",
+        description: "Deux lacs landais reliés, bordés de forêts de pins. Eaux calmes et chaudes dès juin. Moins fréquenté que Lacanau.",
+        activites: [
+          "Baignade sur les rives naturelles 🟢 Gratuit",
+          "Tour des lacs à vélo (piste cyclable) 🟢 Gratuit",
+          "Canoë-kayak (location à Mimizan) 🔴 Payant (~15€/heure)",
+          "Pêche au brochet et au sandre 🔴 Nécessite permis",
+          "Marché de Parentis-en-Born (vendredi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Les chiens peuvent se baigner librement hors des zones aménagées. Les rives naturelles sont parfaites pour eux." },
+        van: "Parking camping-car à Mimizan. Bien indiqué.",
         aires: ["Aire de Mimizan-bourg (gratuite)", "Camping le Lac (animaux bienvenus)"],
-        astuce: "Côté Aureilhan, les rives sont plus sauvages et moins fréquentées que côté Biscarrosse."
+        astuce: "Côté Aureilhan, les rives sont plus sauvages et moins fréquentées."
+      },
+      {
+        nom: "Lac de Lacanau", region: "Gironde", foule: "moyen",
+        description: "Un grand lac girondain entre la forêt des Landes et l'océan. Base nautique, plages naturelles, pistes cyclables. Moins fréquenté que l'océan.",
+        activites: [
+          "Baignade sur la plage du lac (surveill. été) 🟢 Gratuit",
+          "Tour du lac à vélo (20 km) 🟢 Gratuit",
+          "Voile et kayak (location) 🔴 Payant",
+          "Promenade en forêt depuis le lac 🟢 Gratuit",
+          "Marché de Lacanau-Océan (été, tous les matins) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Rives naturelles accessibles aux chiens. Zone de baignade principale : chiens hors espace balisé." },
+        van: "Grand parking au lac (gratuit hors saison). Accès simple.",
+        aires: ["Aire de Lacanau (gratuite)", "Camping des Grands Pins (animaux ok)"],
+        astuce: "Le côté nord du lac, vers Maubuisson, est beaucoup plus calme que le village de Lacanau."
+      }
+    ],
+
+    campagne: [
+      {
+        nom: "Route des châteaux du Médoc", region: "Gironde", foule: "calme",
+        description: "La route des grands vins de Bordeaux, avec des châteaux viticoles extraordinaires dans un paysage de vignes ouvert et majestueux.",
+        activites: [
+          "Château Pichon Longueville (architecture spectaculaire) 🔴 Dégustation payante",
+          "Village de Saint-Estèphe (promenade dans le village) 🟢 Gratuit",
+          "Château Cos d'Estournel (architecture orientale insolite) 🟢 Gratuit (extérieur)",
+          "Estey de la Gironde (bord de fleuve sauvage) 🟢 Gratuit",
+          "Marché de Pauillac (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Vignobles accessibles en voiture et à pied en laisse. Villages calmes. Bords de Gironde accessibles." },
+        van: "Route D2 (route des châteaux) parfaitement adaptée. Parking dans chaque village.",
+        aires: ["Aire de Pauillac (gratuite, bord de Gironde)", "Parking villages (gratuit)"],
+        astuce: "La Gironde vue depuis Pauillac au coucher du soleil est spectaculaire. Tout est gratuit depuis les quais."
+      }
+    ],
+
+    montagne: [
+      {
+        nom: "Pyrénées Basques — La Rhune et Saint-Jean-de-Luz", region: "Pays Basque", foule: "moyen",
+        description: "Le premier sommet pyrénéen côté atlantique. La Rhune accessible par train à crémaillère, avec une vue de 360° sur mer et montagne.",
+        activites: [
+          "Train à crémaillère de La Rhune 🔴 Payant (~21€ aller-retour)",
+          "Village de Sare (Plus Beaux Villages, authentique) 🟢 Gratuit",
+          "Grottes de Sare 🔴 Payant (~8€/pers.)",
+          "Village d'Ainhoa (plus beau village, maisons basques) 🟢 Gratuit",
+          "Marché de Saint-Jean-de-Luz (mardi et vendredi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "⚠️ Train de La Rhune : chiens non admis. Montée à pied possible mais longue. Villages et routes : chiens bienvenus en laisse." },
+        van: "Route de la Rhune accessible. Parking au départ du train (payant en été).",
+        aires: ["Aire de Saint-Jean-de-Luz (gratuite)", "Parking Sare (gratuit)"],
+        astuce: "Le village de Sare est authentique et beaucoup moins fréquenté que Saint-Jean-Pied-de-Port."
+      }
+    ],
+
+    village: [
+      {
+        nom: "Villages du Pays Basque intérieur", region: "Pyrénées-Atlantiques", foule: "calme",
+        description: "Ainhoa, Espelette, Itxassou — des villages basques aux maisons rouges et blanches, dans des vallées vertes et calmes.",
+        activites: [
+          "Village d'Espelette (piments rouges séchés partout) 🟢 Gratuit",
+          "Village d'Ainhoa (Plus Beau Village) 🟢 Gratuit",
+          "Fête du piment d'Espelette (fin octobre) 🟢 Gratuit",
+          "Marché d'Espelette (mercredi matin) 🟢 Gratuit",
+          "Promenade dans la vallée de la Nive 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Villages accessibles en laisse. Vallées et chemins très dog-friendly." },
+        van: "Routes de vallée basque praticables. Parking en entrée des villages.",
+        aires: ["Aire d'Espelette (gratuite)", "Parking villages (gratuit)"],
+        astuce: "Espelette en automne avec les guirlandes de piments rouges séchés est une image absolument unique."
       }
     ]
   },
+
+  // ===========================
+  // MASSIF CENTRAL
+  // ===========================
   'massif-central': {
     montagne: [
       {
-        nom: "Volcans du Cantal — Autour de Murat",
-        region: "Cantal",
-        foule: "calme",
-        description: "Le plus grand volcan d'Europe, érodé en plateaux immenses. Des paysages de bout du monde, des estives, des vaches de race Salers, des routes quasi désertes.",
-        activites: ["Randonnée sur les crêtes (Puy Mary, Plomb du Cantal)", "Route des Crêtes (panorama à 360°)", "Village de Salers (authentique)", "Chasse aux champignons en automne"],
-        chiens: { ok: true, detail: "✅ Chiens bienvenus sur les chemins de randonnée. Attention aux troupeaux : laisse obligatoire à proximité des vaches et moutons (protection des chiens eux-mêmes !). Vastes espaces libres en dehors des estives." },
-        van: "Routes de montagne larges sur le plateau. Quelques virages serrés vers les cols — vérifiez la hauteur/longueur de votre van. Parking au Puy Mary bien aménagé.",
-        aires: ["Aire de Murat (gratuite, vue volcans)", "Parking du Puy Mary (payant en été, gratuit hors saison)"],
-        astuce: "Évitez le Puy Mary en juillet-août (monde). Mai, juin, septembre : les plateaux sont à vous."
+        nom: "Volcans du Cantal — autour de Murat", region: "Cantal", foule: "calme",
+        description: "Le plus grand volcan d'Europe, érodé en plateaux immenses. Paysages de bout du monde, estives, routes quasi désertes.",
+        activites: [
+          "Route des Crêtes (panorama 360°, accessible en van) 🟢 Gratuit",
+          "Village de Salers (bastide médiévale, architecture unique) 🟢 Gratuit",
+          "Château d'Anjony à Tournemire 🔴 Payant (~7€/pers.)",
+          "Puy Mary (point de vue accessible en voiture) 🔴 Parking payant en été",
+          "Marché de Murat (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens bienvenus sur les chemins. Laisse OBLIGATOIRE près des troupeaux avec patous (chiens de protection)." },
+        van: "Routes de montagne larges sur le plateau. Parking au Puy Mary bien aménagé.",
+        aires: ["Aire de Murat (gratuite, vue volcans)", "Parking Puy Mary (gratuit hors saison)"],
+        astuce: "Le village de Salers est l'un des plus beaux de France. En semaine hors saison : quasi désert."
+      },
+      {
+        nom: "Monts Dore — Clermont à Mont-Dore", region: "Puy-de-Dôme", foule: "moyen",
+        description: "La station thermale la plus haute de France, au cœur des volcans. Téléphérique, sources thermales, paysages alpins à 1 200m.",
+        activites: [
+          "Téléphérique du Sancy (vue exceptionnelle) 🔴 Payant (~12€/pers.)",
+          "Etablissement thermal (bains, soins) 🔴 Payant",
+          "Cascades du Queureuilh (accès à pied court) 🟢 Gratuit",
+          "Promenade sur les bords de la Dordogne naissante 🟢 Gratuit",
+          "Marché de Mont-Dore (mardi et vendredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Sentiers de la vallée très accessibles en laisse. Téléphérique : chiens acceptés. Thermes : chiens non admis à l'intérieur." },
+        van: "Mont-Dore accessible en van par la D996. Parking en entrée de station.",
+        aires: ["Aire de Mont-Dore (gratuite)", "Parking bords de Dordogne (libre)"],
+        astuce: "Le téléphérique du Sancy est le moyen le plus simple d'avoir une vue exceptionnelle sans marcher longtemps."
+      },
+      {
+        nom: "Aubrac — Le plateau sauvage", region: "Aveyron/Lozère/Cantal", foule: "calme",
+        description: "Un plateau immense à 1 200m, vide d'hommes et plein de ciel. Des pierres, des vaches, du vent, du silence.",
+        activites: [
+          "Village d'Aubrac (superbe, quasi désert) 🟢 Gratuit",
+          "Route de l'Aubrac (panoramas depuis la voiture) 🟢 Gratuit",
+          "Laguiole et sa coutellerie (visite d'atelier) 🔴 Payant (~8€/pers.)",
+          "Marché de Laguiole (mercredi matin) 🟢 Gratuit",
+          "Repas local : aligot et truffade (restaurants) 🔴 Payant"
+        ],
+        chiens: { ok: true, detail: "⚠️ Laisse OBLIGATOIRE pendant la période des troupeaux (mai à octobre). Patous présents — ne pas approcher." },
+        van: "Route D987 bien praticable. Vents forts parfois.",
+        aires: ["Aire de Laguiole (gratuite, vue plateau)", "Parking village d'Aubrac (libre)"],
+        astuce: "Le village d'Aubrac en dehors de la transhumance est d'un calme et d'une beauté absolus."
+      },
+      {
+        nom: "Gorges de la Jonte et du Tarn", region: "Lozère/Aveyron", foule: "calme",
+        description: "Des gorges parmi les plus spectaculaires de France, avec des vautours fauves qui planent au-dessus des falaises.",
+        activites: [
+          "Route des gorges de la Jonte (depuis la voiture, spectaculaire) 🟢 Gratuit",
+          "Village de Meyrueis (charmant, bien équipé) 🟢 Gratuit",
+          "Maison des Vautours au Truel 🔴 Payant (~6€/pers.)",
+          "Chaos de Montpellier-le-Vieux (lapiaz calcaire) 🔴 Payant (~7€/pers.)",
+          "Marché de Millau (mercredi et vendredi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Routes et sentiers accessibles. Chaos de Montpellier-le-Vieux : chiens acceptés en laisse." },
+        van: "Route des gorges parfaitement praticable. Parking à Meyrueis.",
+        aires: ["Aire de Meyrueis (gratuite)", "Camping de la Jonte (animaux ok)"],
+        astuce: "Observer les vautours fauves planer dans les gorges depuis votre van garé sur un belvédère — gratuit et inoubliable."
+      },
+      {
+        nom: "Pays des Sucs — Haute-Loire volcanique", region: "Haute-Loire", foule: "calme",
+        description: "Des pitons volcaniques qui jaillissent des plateaux, surmontés de villages ou de chapelles médiévales. Paysage unique.",
+        activites: [
+          "Rocher Saint-Michel d'Aiguilhe au Puy-en-Velay 🔴 Payant (~4€/pers.)",
+          "Centre du Puy-en-Velay (place du For, cathédrale) 🟢 Gratuit",
+          "Rocher Corneille (statue Notre-Dame, ascension) 🔴 Payant (~4€/pers.)",
+          "Marché du Puy-en-Velay (samedi, exceptionnel) 🟢 Gratuit",
+          "Dentelle du Puy (ateliers de démonstration) 🟢 Gratuit (certains)"
+        ],
+        chiens: { ok: true, detail: "✅ Centre du Puy accessible en laisse. Rocher Saint-Michel : chiens non admis en haut. Alentours très accessibles." },
+        van: "Puy-en-Velay bien équipé. Aire de camping-car en entrée de ville.",
+        aires: ["Aire du Puy-en-Velay (gratuite, services)", "Parking périphérique (gratuit)"],
+        astuce: "Le marché du samedi au Puy-en-Velay est l'un des plus beaux et des plus vivants de toute la région."
       }
     ],
+
     lac: [
       {
-        nom: "Lac de la Crégut & Lac Pavin",
-        region: "Puy-de-Dôme / Auvergne",
-        foule: "calme",
-        description: "Le lac Pavin est un maar volcanique parfaitement rond — un des sites les plus étonnants d'Auvergne. La Crégut, moins connue, est encore plus sauvage.",
-        activites: ["Tour du lac Pavin à pied (45 min, facile)", "Randonnée vers le Puy de Montchal (vue sur les deux lacs)", "Pêche (réglementée sur le Pavin)", "Villages de Besse-en-Chandesse et Super-Besse"],
-        chiens: { ok: true, detail: "✅ Sentier autour du Pavin accessible avec chiens (laisse recommandée). La Crégut est encore plus libre. Baignade interdite dans le Pavin (écosystème protégé) mais le chien peut tremper les pattes sur les rives caillouteuses." },
-        van: "Parking au lac Pavin (capacité limitée, arrivez tôt). Routes de montagne correctes pour van.",
-        aires: ["Aire de Besse-en-Chandesse (gratuite)", "Camping des Volcans à Murol (animaux ok)"],
-        astuce: "Le lac Pavin à l'aube, avec un brouillard de fond de cratère, est quelque chose d'inoubliable."
+        nom: "Lac Pavin & Lac de la Crégut", region: "Puy-de-Dôme", foule: "calme",
+        description: "Le lac Pavin est un maar volcanique parfaitement rond, mystérieux. La Crégut, moins connue, est encore plus sauvage.",
+        activites: [
+          "Tour du lac Pavin (sentier facile, 45 min) 🟢 Gratuit",
+          "Point de vue depuis le Puy de Montchal (court, beau) 🟢 Gratuit",
+          "Village de Besse-en-Chandesse (médiéval, authentique) 🟢 Gratuit",
+          "Marché de Besse (mardi et vendredi) 🟢 Gratuit",
+          "Station de Super-Besse (vue panoramique été) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Sentier autour du Pavin accessible avec chiens en laisse. Baignade interdite dans le Pavin (écosystème protégé)." },
+        van: "Parking au lac Pavin (arrivez tôt en été). Routes de montagne correctes.",
+        aires: ["Aire de Besse-en-Chandesse (gratuite)", "Camping des Volcans (animaux ok)"],
+        astuce: "Le lac Pavin à l'aube avec un brouillard de fond de cratère est quelque chose d'inoubliable."
+      },
+      {
+        nom: "Lac de Guéry", region: "Puy-de-Dôme", foule: "calme",
+        description: "Le plus haut lac naturel d'Auvergne, dans un cadre volcanique de toute beauté. Vue sur les sommets des Dômes et du Sancy.",
+        activites: [
+          "Point de vue sur le lac (accès voiture direct) 🟢 Gratuit",
+          "Promenade autour du lac (terrain plat, 45 min) 🟢 Gratuit",
+          "Roches Tuilière et Sanadoire (formation volcanique unique) 🟢 Gratuit",
+          "Observation des oiseaux (plongeons, canards) 🟢 Gratuit",
+          "Marché de Clermont-Ferrand (tous les jours) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords du lac et chemin de tour accessibles en laisse. Peu de monde hors été." },
+        van: "Parking directement au bord du lac (gratuit). Route D983 bien praticable.",
+        aires: ["Parking lac de Guéry (gratuit)", "Aire de La Bourboule (gratuite, proche)"],
+        astuce: "Le lac de Guéry est accessible en voiture jusqu'au bord — idéal pour ceux qui ne marchent pas longtemps."
+      },
+      {
+        nom: "Lac de Villefort", region: "Lozère", foule: "calme",
+        description: "Un lac artificiel de montagne dans les Cévennes, entouré de forêts de pins et de châtaigniers. Eau claire, calme absolu.",
+        activites: [
+          "Baignade sur la plage naturelle 🟢 Gratuit",
+          "Tour du lac à pied (chemin accessible) 🟢 Gratuit",
+          "Village de Villefort (point de départ) 🟢 Gratuit",
+          "Château de Castillon (ruines sur piton rocheux) 🟢 Gratuit",
+          "Parc national des Cévennes (accueil et information) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Lac peu fréquenté, rives naturelles. Excellent pour les chiens. Chemin de tour accessible." },
+        van: "Accès via la N88 puis route locale. Parking en bord de lac.",
+        aires: ["Aire de Villefort (gratuite)", "Camping du Lac (animaux ok)"],
+        astuce: "Villefort est la porte d'entrée des Cévennes les moins fréquentées — les gorges du Chassezac sont tout proches."
       }
     ],
+
     campagne: [
       {
-        nom: "Plateau de l'Aubrac",
-        region: "Aveyron / Lozère / Cantal",
-        foule: "calme",
-        description: "Un plateau immense à 1 200m d'altitude, vide d'hommes et plein de ciel. Des pierres, des vaches, du vent, du silence. L'un des espaces les plus sauvages de France.",
-        activites: ["Randonnée libre sur le plateau (GR6, chemin de Saint-Jacques)", "Village d'Aubrac (superbe, vide)", "Fête de la transhumance (fin mai)", "Cuisine locale : aligot, truffade"],
-        chiens: { ok: true, detail: "⚠️ Chiens bienvenus sur le plateau, mais LAISSE OBLIGATOIRE pendant la période des troupeaux (mai à octobre). Des chiens de protection (patous) gardent les troupeaux — ne pas s'approcher." },
-        van: "Route nationale D987 traverse le plateau — bien praticable. Vents forts parfois.",
-        aires: ["Aire de Laguiole (gratuite, vue plateau)", "Parking village d'Aubrac (libre)"],
-        astuce: "La transhumance de fin mai est un événement extraordinaire et très populaire — mais le reste de l'été, personne."
+        nom: "Vallée de la Truyère — Gorges du Truyère", region: "Cantal/Aveyron", foule: "calme",
+        description: "Des gorges profondes créées par la retenue du barrage de Grandval. Belvédères spectaculaires, viaducs vertigineux, forêts de chênes.",
+        activites: [
+          "Viaduc de Garabit (Gustave Eiffel, vue depuis la D909) 🟢 Gratuit",
+          "Belvédère de Mallet (vue sur lac de barrage) 🟢 Gratuit",
+          "Village de Chaudes-Aigues (thermes, eau à 82°) 🟢 Gratuit (extérieur)",
+          "Croisière sur le lac du Barrage de Grandval 🔴 Payant (~14€/pers.)",
+          "Marché de Saint-Flour (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Belvédères et routes accessibles en voiture avec chiens. Peu de marche nécessaire pour les points de vue." },
+        van: "Routes de gorges praticables. Quelques virages — vérifiez longueur du van.",
+        aires: ["Aire de Saint-Flour (gratuite, vue exceptionnelle)", "Parking viaduc de Garabit (gratuit)"],
+        astuce: "Le viaduc de Garabit vu depuis la D909 est l'un des plus impressionnants construits par Eiffel — et l'accès est totalement gratuit."
+      },
+      {
+        nom: "Grands Causses — Autour de Millau", region: "Aveyron", foule: "calme",
+        description: "Des plateaux calcaires immenses, des gorges vertigineuses, un viaduc qui touche les nuages. Paysages de bout du monde.",
+        activites: [
+          "Viaduc de Millau (vue depuis le belvédère gratuit) 🟢 Gratuit / Musée payant",
+          "Caves de Roquefort (visite des caves à fromage) 🔴 Payant (~5€/pers.)",
+          "Village de Saint-Affrique (marché le lundi) 🟢 Gratuit",
+          "Chaos de Montpellier-le-Vieux (lapiaz calcaire) 🔴 Payant (~7€)",
+          "Promenade sur les causses (chemin plat et infini) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Causses et chemins accessibles en laisse. Grands espaces, peu de monde. Caves de Roquefort : chiens non admis." },
+        van: "Autoroute A75 (gratuite !) traverse les causses. Accès partout en van.",
+        aires: ["Aire de Millau (gratuite, vue viaduc)", "Parking belvédère viaduc (gratuit)"],
+        astuce: "L'autoroute A75 entre Clermont et Montpellier est gratuite et traverse des paysages extraordinaires."
+      }
+    ],
+
+    village: [
+      {
+        nom: "Conques — Joyau roman de l'Aveyron", region: "Aveyron", foule: "calme",
+        description: "Un village médiéval suspendu dans un cirque naturel, avec une abbatiale romane aux vitraux modernes de Soulages — chef-d'œuvre absolu.",
+        activites: [
+          "Abbatiale Sainte-Foy (trésor et tympan du Jugement Dernier) 🟢 Gratuit / Trésor payant (~6€)",
+          "Promenade dans le village (ruelles pavées, facile) 🟢 Gratuit",
+          "Musée du Trésor de Conques 🔴 Payant (~6€/pers.)",
+          "Pont roman sur le Dourdou 🟢 Gratuit",
+          "Marché de Conques (été, dimanche matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Village et abords accessibles en laisse. Abbatiale : chiens non admis à l'intérieur." },
+        van: "Route d'accès étroite depuis Decazeville — vérifiez la hauteur de votre van. Parking en bas du village.",
+        aires: ["Aire de Conques (gratuite, bord de Dourdou)", "Parking village (gratuit)"],
+        astuce: "Conques est le plus beau village médiéval du Massif Central. Venez en semaine pour éviter les cars de touristes."
+      }
+    ],
+
+    foret: [
+      {
+        nom: "Forêt de la Margeride — Autour de Marvejols", region: "Lozère", foule: "calme",
+        description: "Un plateau forestier sauvage entre Massif Central et Cévennes. Pins sylvestres, granit, loups (réintroduits dans le Gévaudan).",
+        activites: [
+          "Loups du Gévaudan (parc animalier à Sainte-Lucie) 🔴 Payant (~12€/pers.)",
+          "Promenade en forêt de Margeride (allées larges) 🟢 Gratuit",
+          "Village de Marvejols (porte médiévale) 🟢 Gratuit",
+          "Site de Bibracte (oppidum gaulois) 🔴 Payant (~8€) — légèrement hors zone",
+          "Marché de Mende (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "⚠️ Loups du Gévaudan : chiens non admis dans le parc. En forêt : laisse fortement recommandée (loups sauvages présents dans la zone)." },
+        van: "Routes de Margeride accessibles. Parking au parc des Loups.",
+        aires: ["Aire de Marvejols (gratuite)", "Parking forêt (libre)"],
+        astuce: "Le parc des Loups du Gévaudan est une expérience unique — voir des loups à quelques mètres en forêt naturelle."
       }
     ]
   },
+
+  // ===========================
+  // VENDÉE & PAYS DE LOIRE
+  // ===========================
   'vendee-nord': {
     mer: [
       {
-        nom: "Île de Noirmoutier (hors juillet-août)",
-        region: "Vendée",
-        foule: "moyen",
-        description: "En dehors de l'été, Noirmoutier retrouve son âme d'île de pêcheurs. Marais salants, forêts de pins, côte sauvage. Un tout autre visage que l'été.",
-        activites: ["Route du Gois (à marée basse — spectaculaire)", "Tour de l'île à vélo", "Marais salants de l'île (randonnée thématique)", "Village de l'Épine (typique)"],
-        chiens: { ok: true, detail: "✅ Hors saison, les chiens sont autorisés sur la plupart des plages et sentiers. En été : restrictions sur les plages aménagées. Marais salants : laisse obligatoire (oiseaux nicheurs)." },
-        van: "Passage par le pont (gratuit) ou le Gois (vérifier horaires marées). Parkings bien dimensionnés pour camping-cars hors saison.",
-        aires: ["Aire de Noirmoutier-en-l'Île (gratuite hors saison)", "Camping La Mignonne (chiens ok)"],
-        astuce: "Le Gois (passage submersible) à marée basse est unique en France. Ne le ratez pas — vérifiez les horaires de marées avant."
+        nom: "Île de Noirmoutier — hors saison", region: "Vendée", foule: "moyen",
+        description: "Hors été, Noirmoutier retrouve son âme d'île de pêcheurs. Marais salants, forêts de pins, côte sauvage.",
+        activites: [
+          "Passage du Gois (traversée à marée basse, spectaculaire) 🟢 Gratuit",
+          "Village de L'Épine (marais salants, promenade plate) 🟢 Gratuit",
+          "Château de Noirmoutier 🔴 Payant (~5€/pers.)",
+          "Marché de Noirmoutier (mardi et vendredi) 🟢 Gratuit",
+          "Tour de l'île à vélo (25 km) 🟢 Gratuit (si vélos perso)"
+        ],
+        chiens: { ok: true, detail: "✅ Hors saison, chiens autorisés sur la plupart des plages et sentiers. En été : restrictions sur les plages aménagées." },
+        van: "Passage du Gois ou pont. Parkings bien dimensionnés hors saison.",
+        aires: ["Aire de Noirmoutier (gratuite hors saison)", "Camping La Mignonne (chiens ok)"],
+        astuce: "Le Gois à marée basse est unique en France. Vérifiez les horaires de marées avant — absolument nécessaire."
+      },
+      {
+        nom: "Côte de Lumière — Saint-Gilles-Croix-de-Vie", region: "Vendée", foule: "calme",
+        description: "Un port de pêche vendéen authentique, moins touristique que les Sables-d'Olonne. Marché aux poissons vivant, plages propres.",
+        activites: [
+          "Marché aux poissons de Saint-Gilles (matin) 🟢 Gratuit à voir",
+          "Promenade sur le front de mer 🟢 Gratuit",
+          "Plage de Boisvinet (calme, hors saison) 🟢 Gratuit",
+          "Village de Commequiers (château médiéval) 🟢 Gratuit (extérieur)",
+          "Marché de Saint-Gilles (mercredi et samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Plages autorisées aux chiens hors saison (avant juin, après septembre). Front de mer accessible en laisse." },
+        van: "Parking camping-car en entrée de ville (gratuit hors saison). Accès facile.",
+        aires: ["Aire de Saint-Gilles-Croix-de-Vie (gratuite, eau)", "Parking plage (gratuit hors saison)"],
+        astuce: "Saint-Gilles est un vrai port de pêche. Le matin, les chalutiers déchargent et les halles sont animées."
+      },
+      {
+        nom: "Île d'Yeu (ferry depuis Fromentine)", region: "Vendée", foule: "calme",
+        description: "Une petite île bretonne égarée en Vendée. Côte sauvage de granit, vieux château médiéval dans la mer, ambiance hors du temps.",
+        activites: [
+          "Tour de l'île à vélo (location au port) 🔴 Payant (~12€/journée)",
+          "Vieux Château (ruines médiévales sur la côte sauvage) 🟢 Gratuit",
+          "Grand Phare (visite en saison) 🔴 Payant (~4€/pers.)",
+          "Port de la Meule (port de pêche sauvage) 🟢 Gratuit",
+          "Marché de Port-Joinville (matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chiens acceptés sur l'île. Côte sauvage idéale pour se promener en laisse. Ferry : chiens admis." },
+        van: "Van garé à Fromentine (parking payant). Traversée en ferry (~30 min).",
+        aires: ["Parking de Fromentine (payant/gratuit selon saison)", "Aire de Saint-Jean-de-Monts (proche)"],
+        astuce: "L'île d'Yeu hors saison est un paradis de calme. Réservez le ferry à l'avance même hors été."
       }
     ],
+
     foret: [
       {
-        nom: "Forêt de Gâtine Vendéenne — autour de Parthenay",
-        region: "Deux-Sèvres",
-        foule: "calme",
-        description: "Un bocage profond, des haies immenses, des vallées creusées dans le granit. Parthenay, ville médiévale méconnue, s'y niche. Calme total.",
-        activites: ["Randonnée dans le bocage de Gâtine", "Visite de Parthenay (cité médiévale, marché du mercredi)", "Vallée du Thouet à vélo", "Pêche à la truite"],
-        chiens: { ok: true, detail: "✅ Bocage idéal pour les chiens. Chemins creux, peu de circulation. Thouet et affluents accessibles pour se baigner. Laisse recommandée près des fermes." },
-        van: "Routes de bocage parfois étroites mais praticables. Parthenay dispose d'un parking camping-car.",
-        aires: ["Aire de Parthenay (gratuite, services)", "Camping la Rivière (bord du Thouet, animaux ok)"],
-        astuce: "Parthenay est l'une des plus belles villes médiévales de France — et reçoit 20 fois moins de touristes que Sarlat."
+        nom: "Forêt de Gâtine Vendéenne — Parthenay", region: "Deux-Sèvres", foule: "calme",
+        description: "Un bocage profond, des haies immenses, des vallées creusées dans le granit. Parthenay, ville médiévale méconnue.",
+        activites: [
+          "Parthenay médiéval (rue de la Vau-Saint-Jacques, porte Saint-Jacques) 🟢 Gratuit",
+          "Marché de Parthenay (mercredi matin, très vivant) 🟢 Gratuit",
+          "Promenade dans le bocage de Gâtine 🟢 Gratuit",
+          "Bords du Thouet (promenade plate) 🟢 Gratuit",
+          "Village de Ménigoute (festival ornithologique en octobre) 🟢 Gratuit (hors festival)"
+        ],
+        chiens: { ok: true, detail: "✅ Bocage idéal pour les chiens. Chemins creux, peu de circulation. Thouet accessible pour se baigner." },
+        van: "Parthenay a un parking camping-car. Routes de bocage praticables.",
+        aires: ["Aire de Parthenay (gratuite, services)", "Camping la Rivière (bord Thouet, animaux ok)"],
+        astuce: "Parthenay est l'une des plus belles villes médiévales de France — ignorée du tourisme de masse."
+      },
+      {
+        nom: "Forêt du Gâvre et bocage de la Loire-Atlantique", region: "Loire-Atlantique", foule: "calme",
+        description: "Une forêt royale de chênes centenaires au nord de Nantes, entourée d'un bocage authentique. Calme absolu.",
+        activites: [
+          "Allées forestières (larges, praticables en van) 🟢 Gratuit",
+          "Village du Gâvre (charmant, calme) 🟢 Gratuit",
+          "Chapelle Saint-Clair dans la forêt 🟢 Gratuit",
+          "Observation de la faune (cerfs, chevreuils, biches) 🟢 Gratuit",
+          "Marché de Blain (vendredi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Excellent pour les chiens. Immensité, allées larges. Attention période de chasse en automne." },
+        van: "Allées forestières larges. Parking en forêt gratuit.",
+        aires: ["Aire du Gâvre (simple, gratuite)", "Parking forêt (libre)"],
+        astuce: "En semaine, on peut traverser toute la forêt sans croiser personne."
+      },
+      {
+        nom: "Forêt des Mauges — Autour de Cholet", region: "Maine-et-Loire", foule: "calme",
+        description: "Un massif forestier discret du Maine-et-Loire, avec des rivières claires et des vallons secrets. Peu connu même des Angevins.",
+        activites: [
+          "Promenade en forêt des Mauges (chemins plats) 🟢 Gratuit",
+          "Bords de l'Èvre (rivière calme, baignade possible) 🟢 Gratuit",
+          "Village de Montfaucon-Montigné (logis seigneurial) 🟢 Gratuit",
+          "Marché de Cholet (mardi, jeudi, samedi) 🟢 Gratuit",
+          "Musée des Arts de Cholet (gratuit certains jours) 🔴 Payant (~4€)"
+        ],
+        chiens: { ok: true, detail: "✅ Forêt et bords d'Èvre parfaits. Peu de monde. Laisse conseillée près des fermes." },
+        van: "Routes de bocage praticables. Parking en forêt.",
+        aires: ["Aire de Cholet (gratuite)", "Parking forêt (libre)"],
+        astuce: "Les Mauges sont méconnues même des Ligériens. Un secret bien gardé."
+      }
+    ],
+
+    lac: [
+      {
+        nom: "Lac de Grand-Lieu", region: "Loire-Atlantique", foule: "calme",
+        description: "Le plus grand lac naturel de France en hiver. Réserve naturelle sauvage, pêcheurs locaux, oiseaux extraordinaires.",
+        activites: [
+          "Promenade autour du village de Passay (plat, accessible) 🟢 Gratuit",
+          "Maison du Lac (exposition faune locale) 🔴 Payant (~4€/pers.)",
+          "Observation des oiseaux depuis les belvédères 🟢 Gratuit",
+          "Village de Saint-Philbert-de-Grand-Lieu (marché vendredi) 🟢 Gratuit",
+          "Abbatiale carolingienne de Saint-Philbert 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Chemins périphériques accessibles. Zone de réserve centrale interdite (oiseaux). Belle balade en laisse." },
+        van: "Parking aisé à Passay. Accès simple.",
+        aires: ["Aire de Saint-Philbert-de-Grand-Lieu (gratuite)", "Camping à l'Acacia (animaux acceptés)"],
+        astuce: "Méconnu même des Nantais. En automne, les oiseaux migrateurs arrivent en masse."
+      },
+      {
+        nom: "Lac du Verdon — Maine-et-Loire", region: "Maine-et-Loire", foule: "calme",
+        description: "Un lac de campagne angevine entouré de cultures et de bois. Calme, peu aménagé, idéal pour une halte douce.",
+        activites: [
+          "Baignade sur la plage naturelle 🟢 Gratuit",
+          "Promenade autour du lac (terrain plat) 🟢 Gratuit",
+          "Pêche sur les berges 🔴 Nécessite permis",
+          "Château de Plessis-Macé à proximité 🔴 Payant (~7€/pers.)",
+          "Marché d'Angers (plusieurs fois par semaine) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Lac peu fréquenté, rives accessibles. Idéal pour les chiens." },
+        van: "Accès simple. Parking en bord de lac.",
+        aires: ["Parking lac (gratuit)", "Aire d'Angers (gratuite, proche)"],
+        astuce: "Le château du Plessis-Macé est l'un des plus beaux châteaux flamboyants de la région — peu visité."
+      }
+    ],
+
+    campagne: [
+      {
+        nom: "Vallée de la Sèvre Nantaise — Clisson", region: "Loire-Atlantique", foule: "calme",
+        description: "Une vallée industrielle reconvertie en site romantique avec des villas italiennes et des ruines de château. Paysage inattendu.",
+        activites: [
+          "Domaine de la Garenne Lemot (parc paysager, temples) 🟢 Gratuit",
+          "Château de Clisson (ruines romantiques) 🔴 Payant (~4€/pers.)",
+          "Promenade le long de la Sèvre (chemin plat) 🟢 Gratuit",
+          "Marché de Clisson (vendredi matin) 🟢 Gratuit",
+          "Vignoble du Muscadet autour (dégustation) 🔴 Payant (achat)"
+        ],
+        chiens: { ok: true, detail: "✅ Parc de la Garenne et bords de Sèvre accessibles en laisse." },
+        van: "Parking gratuit en périphérie de Clisson. Accès facile.",
+        aires: ["Aire de Clisson (gratuite)", "Parking bords de Sèvre (libre)"],
+        astuce: "Clisson ressemble à une ville italienne — totalement inattendu dans le vignoble nantais."
+      },
+      {
+        nom: "Bocage vendéen — Autour des Herbiers", region: "Vendée", foule: "calme",
+        description: "Le bocage vendéen des Guerres de Vendée, avec des chemins creux, des moulins et des chapelles cachées. Région très authentique.",
+        activites: [
+          "Puy du Fou (vue depuis l'extérieur, architecture) 🟢 Gratuit (entrée payante)",
+          "Village des Herbiers (marché le mardi) 🟢 Gratuit",
+          "Moulin des Justices (ancien moulin à vent) 🟢 Gratuit",
+          "Promenade sur les chemins creux 🟢 Gratuit",
+          "Mémorial de la Vendée (histoire des Guerres de Vendée) 🔴 Payant (~10€/pers.)"
+        ],
+        chiens: { ok: true, detail: "✅ Chemins creux et bocage idéaux. Peu de monde, espaces verts." },
+        van: "Routes de bocage praticables. Parking aux Herbiers.",
+        aires: ["Aire des Herbiers (gratuite)", "Parking village (gratuit)"],
+        astuce: "Le Mémorial de la Vendée est un musée passionnant sur une guerre oubliée — très bien fait."
+      }
+    ],
+
+    village: [
+      {
+        nom: "Fontenay-le-Comte et la Venise Verte", region: "Vendée/Deux-Sèvres", foule: "calme",
+        description: "Une ancienne capitale provinciale avec un beau centre Renaissance, porte d'entrée du Marais Poitevin.",
+        activites: [
+          "Centre historique de Fontenay (architecture Renaissance méconnue) 🟢 Gratuit",
+          "Promenade en barque dans le Marais Poitevin 🔴 Payant (~12€/pers.)",
+          "Marché de Fontenay (vendredi matin) 🟢 Gratuit",
+          "Musée Vendéen 🔴 Payant (~4€/pers.)",
+          "Bords de la Vendée (promenade plate) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Centre et bords de rivière accessibles en laisse. Peu de monde." },
+        van: "Parking en périphérie. Centre à pied.",
+        aires: ["Aire de Fontenay-le-Comte (gratuite)", "Parking bords de Vendée (libre)"],
+        astuce: "Fontenay fut la capitale de la Vendée avant La Roche-sur-Yon — son passé Renaissance est méconnu."
+      }
+    ],
+
+    montagne: [
+      {
+        nom: "Collines du Bocage — Hauteurs de Vendée", region: "Vendée", foule: "calme",
+        description: "Les plus hauts points de la Vendée (300m) — pas des montagnes, mais des collines boisées avec des vues douces sur le bocage.",
+        activites: [
+          "Mont des Alouettes (moulins à vent restaurés, vue 360°) 🟢 Gratuit",
+          "Village des Herbiers (marché le mardi) 🟢 Gratuit",
+          "Puy Crapaud (point culminant, accès facile) 🟢 Gratuit",
+          "Prieuré de Grammont (ruines dans les bois) 🟢 Gratuit",
+          "Bocage entre les villages (chemins creux) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Excellents espaces pour les chiens. Collines douces, pas d'effort. Chemins creux ombragés." },
+        van: "Routes de collines sans problème. Parking aux moulins.",
+        aires: ["Aire des Herbiers (gratuite)", "Parking Mont des Alouettes (gratuit)"],
+        astuce: "Les moulins des Alouettes tournent encore et ont une vue magnifique sur le bocage vendéen."
       }
     ]
   },
+
+  // ===========================
+  // BERRY & BOURBONNAIS
+  // ===========================
   'berry-bourbonnais': {
     campagne: [
       {
-        nom: "La Creuse — autour de Boussac et Évaux",
-        region: "Creuse",
-        foule: "calme",
-        description: "Le département le plus vide de France. Des prairies, des ruisseaux clairs, des hameaux de granit abandonnés ou presque. Pas de tourisme — de la vraie vie rurale.",
-        activites: ["Randonnée sur les chemins de granit", "Baignade dans la Creuse et ses affluents", "Village de Boussac et son château", "Thermes d'Évaux-les-Bains (si besoin de confort)"],
-        chiens: { ok: true, detail: "✅ Liberté presque totale. Peu de monde, espaces immenses. Rivières parfaites pour les chiens. Laisse conseillée près des troupeaux de vaches charolaises." },
-        van: "Routes de campagne sans aucune difficulté. Tout y est accessible.",
+        nom: "La Creuse — autour de Boussac et Évaux", region: "Creuse", foule: "calme",
+        description: "Le département le plus vide de France. Prairies, ruisseaux clairs, hameaux de granit. Pas de tourisme — la vraie vie rurale.",
+        activites: [
+          "Château de Boussac (Tapisseries de la Dame à la Licorne originales) 🔴 Payant (~7€/pers.)",
+          "Village de Boussac (marché le samedi) 🟢 Gratuit",
+          "Thermes d'Évaux-les-Bains (balades autour) 🟢 Gratuit",
+          "Bords de la Creuse (baignade, chemin plat) 🟢 Gratuit",
+          "Château de Villemonteix (tapisseries flamandes) 🔴 Payant (~5€)"
+        ],
+        chiens: { ok: true, detail: "✅ Liberté presque totale. Peu de monde, espaces immenses. Bords de Creuse parfaits pour les chiens." },
+        van: "Routes de campagne sans aucune difficulté. Tout accessible.",
         aires: ["Aire d'Évaux-les-Bains (gratuite, eau)", "Aire de Boussac (simple et calme)"],
-        astuce: "La Creuse est peut-être le département le plus beau et le moins visité de France. Un secret."
+        astuce: "Les originales des Tapisseries de la Dame à la Licorne (avant leur transfert à Paris) étaient ici. Les copies au château sont magnifiques."
+      },
+      {
+        nom: "Pays de George Sand — Autour de La Châtre", region: "Indre", foule: "calme",
+        description: "Le Berry que George Sand a immortalisé dans ses romans. Des paysages doux, des moulins, des étangs, une campagne préservée.",
+        activites: [
+          "Château de Nohant (demeure de George Sand) 🔴 Payant (~9€/pers.)",
+          "Village de La Châtre (marché le lundi) 🟢 Gratuit",
+          "Bords de l'Indre (promenade plate, accessible) 🟢 Gratuit",
+          "Village de Saint-Chartier (festival médiéval en juillet) 🟢 Gratuit (hors festival)",
+          "Moulins de Gargilesse (bords de Creuse) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Campagne berrichonne idéale. Bords d'Indre et de Creuse très accessibles." },
+        van: "Routes de campagne faciles. Parking à La Châtre.",
+        aires: ["Aire de La Châtre (gratuite)", "Parking bords d'Indre (libre)"],
+        astuce: "Le château de Nohant où vivait George Sand est l'un des musées les plus attachants de France."
+      },
+      {
+        nom: "Bocage Bourbonnais — Autour de Souvigny", region: "Allier", foule: "calme",
+        description: "Un pays de bocage vert et de petites rivières, avec l'ancienne capitale des Bourbons — architecture remarquable pour si peu de visiteurs.",
+        activites: [
+          "Prieuré de Souvigny (nécropole des Bourbons) 🔴 Payant (~5€/pers.)",
+          "Village de Souvigny (marché le mercredi) 🟢 Gratuit",
+          "Promenade en bords de Bouble (rivière calme) 🟢 Gratuit",
+          "Village de Bourbon-l'Archambault (château, thermes) 🟢 Gratuit (extérieur)",
+          "Marché de Moulins (mercredi et samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bocage et bords de rivière accessibles. Peu de monde, espaces verts." },
+        van: "Villages accessibles. Parking central.",
+        aires: ["Aire de Moulins (gratuite, proche)", "Parking Souvigny (gratuit)"],
+        astuce: "Bourbon-l'Archambault est une ancienne ville thermale royale — ses ruines de château sont impressionnantes."
+      },
+      {
+        nom: "Vignobles du Cher — Quincy et Reuilly", region: "Cher", foule: "calme",
+        description: "Deux appellations méconnues du Berry, dans un paysage de vignes et de bords de rivières calme et reposant.",
+        activites: [
+          "Village de Quincy (dégustation chez les vignerons) 🔴 Payant (achat)",
+          "Bords du Cher (promenade plate) 🟢 Gratuit",
+          "Village de Reuilly (architecture rurale berrichonne) 🟢 Gratuit",
+          "Marché de Vierzon (vendredi matin) 🟢 Gratuit",
+          "Château de Menetou-Salon 🔴 Payant (~8€/pers.)"
+        ],
+        chiens: { ok: true, detail: "✅ Bords du Cher et vignobles accessibles en laisse. Peu de monde." },
+        van: "Routes de vignoble faciles. Parking dans les villages.",
+        aires: ["Aire de Vierzon (gratuite)", "Parking villages (gratuit)"],
+        astuce: "Les vins de Quincy et Reuilly sont inconnus du grand public mais délicieux — à découvrir directement chez les producteurs."
+      },
+      {
+        nom: "Sologne — Étangs du Loiret", region: "Loiret", foule: "calme",
+        description: "La Sologne du Loiret, moins connue que celle du Loir-et-Cher. Forêts de pins, étangs de chasse, routes forestières interminables.",
+        activites: [
+          "Promenade dans les forêts de Sologne (allées larges) 🟢 Gratuit",
+          "Village de Chaumont-sur-Tharonne (beau marché le dimanche) 🟢 Gratuit",
+          "Château de La Ferté-Saint-Aubin (visite vivante) 🔴 Payant (~12€/pers.)",
+          "Observation de la faune (cerfs, sangliers, biches) 🟢 Gratuit",
+          "Étangs forestiers (baignade sauvage possible) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Sologne idéale pour les chiens. Forêts immenses. Attention à la chasse en automne-hiver." },
+        van: "Routes forestières larges et dégagées. Parking partout.",
+        aires: ["Aire de La Ferté-Saint-Aubin (gratuite)", "Parking forêt (libre)"],
+        astuce: "Le Château de La Ferté-Saint-Aubin propose des activités et visites vivantes — attachant et peu fréquenté."
       }
     ],
+
     lac: [
       {
-        nom: "Lac de Sidiailles & Vallée du Cher",
-        region: "Cher",
-        foule: "calme",
-        description: "Un lac artificiel discret du Berry, entouré de landes et de forêts. Peu développé, naturel, avec une plage de sable propre. La vallée du Cher en amont est également magnifique.",
-        activites: ["Baignade et bronzage sur la plage naturelle", "Tour du lac à pied (2h)", "Pêche à la carpe et au brochet", "Randonnée dans les landes de Sidiailles"],
-        chiens: { ok: true, detail: "✅ Chiens bienvenus. Lac peu fréquenté, rives naturelles accessibles. Baignade canine possible sur les rives hors zone de plage aménagée." },
-        van: "Grand parking gratuit. Route d'accès simple depuis Saint-Amand-Montrond.",
-        aires: ["Aire de Saint-Amand-Montrond", "Camping du Lac de Sidiailles (animaux ok)"],
-        astuce: "Inconnu même des gens du Berry. En semaine, vous serez seuls sur les rives."
+        nom: "Lac de Sidiailles", region: "Cher", foule: "calme",
+        description: "Un lac artificiel discret du Berry, entouré de landes et de forêts. Naturel, peu aménagé, plage de sable propre.",
+        activites: [
+          "Baignade sur la plage naturelle 🟢 Gratuit",
+          "Tour du lac (2h, accessible) 🟢 Gratuit",
+          "Pêche à la carpe et au brochet 🔴 Nécessite permis",
+          "Village de Saint-Amand-Montrond (abbaye) 🟢 Gratuit",
+          "Musée Saint-Vic à Saint-Amand 🔴 Payant (~4€)"
+        ],
+        chiens: { ok: true, detail: "✅ Lac peu fréquenté, rives naturelles. Baignade canine hors zone aménagée." },
+        van: "Grand parking gratuit. Accès simple.",
+        aires: ["Aire de Saint-Amand-Montrond (gratuite)", "Camping du Lac (animaux ok)"],
+        astuce: "Inconnu même des Berrichons. En semaine, vous serez seuls."
+      },
+      {
+        nom: "Vallée du Cher — Autour de Saint-Amand", region: "Cher", foule: "calme",
+        description: "La vallée du Cher en amont de Vierzon — plus sauvage et moins touristique que la Touraine. Des spots de baignade naturelle dans les méandres.",
+        activites: [
+          "Baignade dans le Cher (méandres naturels) 🟢 Gratuit",
+          "Village de Drevant (théâtre gallo-romain, temple) 🟢 Gratuit",
+          "Bords du Cher (promenade très accessible) 🟢 Gratuit",
+          "Marché de Saint-Amand (mardi, vendredi, samedi) 🟢 Gratuit",
+          "Tour de Meillant (village et château) 🔴 Payant (~8€)"
+        ],
+        chiens: { ok: true, detail: "✅ Bords du Cher et méandres idéaux. Baignade naturelle avec les chiens." },
+        van: "Vallée accessible sans difficulté. Parking en bord de Cher.",
+        aires: ["Aire de Saint-Amand-Montrond (gratuite)", "Parking bords du Cher (libre)"],
+        astuce: "Le site gallo-romain de Drevant est exceptionnel et totalement gratuit — temples, théâtre, thermes."
+      },
+      {
+        nom: "Lac des Settons — Morvan", region: "Nièvre", foule: "calme",
+        description: "Un lac artificiel dans la forêt du Morvan, parc naturel régional. Eaux bleues, forêts de sapins, paysage de montagne douce.",
+        activites: [
+          "Baignade sur les plages naturelles 🟢 Gratuit",
+          "Tour du lac à vélo (20 km) 🟢 Gratuit",
+          "Kayak et canoë (location) 🔴 Payant (~15€/heure)",
+          "Promenade en forêt du Morvan (allées larges) 🟢 Gratuit",
+          "Village de Montsauche-les-Settons 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Excellent pour les chiens. Rives naturelles, forêt accessible. Baignade libre sur les parties sauvages." },
+        van: "Grand parking au lac (gratuit). Routes du Morvan accessibles.",
+        aires: ["Camping des Settons (animaux ok)", "Parking lac (gratuit)"],
+        astuce: "Le Morvan est souvent ignoré au profit de la Bourgogne viticole — à tort."
       }
     ],
+
     village: [
       {
-        nom: "Moulins & vallée de l'Allier",
-        region: "Allier — Bourbonnais",
-        foule: "calme",
-        description: "Une ancienne capitale royale oubliée par le temps. Un patrimoine Renaissance exceptionnel, une cathédrale avec des vitraux du XVe, et la vallée de l'Allier — un fleuve sauvage.",
-        activites: ["Visite du centre de Moulins (trésors cachés)", "Randonnée sur les bords de l'Allier (oiseaux, castors)", "Route Bourbonnaise à vélo", "Musée de la Visitation (art sacré méconnu)"],
-        chiens: { ok: true, detail: "✅ Bords de l'Allier idéaux pour les chiens. Rivière sauvage avec accès libres. Centre-ville accessible en laisse." },
-        van: "Moulins dispose d'une aire camping-car bien placée. Bords de l'Allier accessibles en van.",
+        nom: "Moulins — Capitale des Bourbons", region: "Allier", foule: "calme",
+        description: "Une ancienne capitale royale oubliée. Cathédrale aux vitraux exceptionnels, musées remarquables, bords de l'Allier sauvages.",
+        activites: [
+          "Cathédrale de Moulins (triptyque du Maître de Moulins, gratuit) 🟢 Gratuit",
+          "Musée Anne de Beaujeu (arts Renaissance) 🔴 Payant (~5€/pers.)",
+          "Promenade sur les bords de l'Allier 🟢 Gratuit",
+          "Vieux-Moulins et ses maisons à colombages 🟢 Gratuit",
+          "Marché de Moulins (mercredi et samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de l'Allier sauvages et idéaux pour les chiens. Centre-ville accessible en laisse." },
+        van: "Aire de camping-car bien placée. Bords de l'Allier accessibles.",
         aires: ["Aire de Moulins (gratuite, bord d'Allier)", "Parking bords d'Allier (accès nature)"],
-        astuce: "Moulins est probablement la plus belle ville inconnue de France. Son retable de la cathédrale est un chef-d'œuvre absolu."
+        astuce: "Moulins est probablement la plus belle ville inconnue de France."
+      },
+      {
+        nom: "Bourges — Cathédrale et palais", region: "Cher", foule: "moyen",
+        description: "Une grande ville médiévale avec une cathédrale UNESCO, des jardins magnifiques et un centre piéton accessible.",
+        activites: [
+          "Cathédrale Saint-Étienne (UNESCO, vitraux extraordinaires) 🟢 Gratuit",
+          "Jardins de l'Archevêché (gratuits et magnifiques) 🟢 Gratuit",
+          "Palais Jacques-Cœur 🔴 Payant (~9€/pers.)",
+          "Marais de Bourges (jardin insolite au coeur de la ville) 🟢 Gratuit",
+          "Marché de Bourges (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Jardins accessibles en laisse. Centre-ville praticable. Cathédrale : chiens non admis." },
+        van: "Aire en entrée de ville. Centre à pied depuis l'aire.",
+        aires: ["Aire de Bourges (gratuite, eau)", "Parking périphérique (gratuit)"],
+        astuce: "Les jardins de l'Archevêché au printemps sont gratuits et parmi les plus beaux de France."
+      },
+      {
+        nom: "Nevers et ses faïences", region: "Nièvre", foule: "calme",
+        description: "Une ville d'art méconnue sur la Loire, avec une cathédrale romane-gothique, un palais ducal et une tradition de faïencerie unique.",
+        activites: [
+          "Cathédrale Saint-Cyr-et-Sainte-Julitte (deux absides, unique en France) 🟢 Gratuit",
+          "Palais ducal (façade Renaissance remarquable) 🟢 Gratuit (intérieur gratuit certain jours)",
+          "Ateliers de faïencerie (démonstration) 🔴 Payant (~5€/pers.)",
+          "Bords de Loire (promenade plate) 🟢 Gratuit",
+          "Marché de Nevers (mardi, jeudi, samedi) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de Loire et centre ville accessibles en laisse." },
+        van: "Aire de camping-car en bord de Loire. Accès facile.",
+        aires: ["Aire de Nevers (gratuite, bord de Loire)", "Parking bords de Loire (libre)"],
+        astuce: "La cathédrale de Nevers est la seule de France avec deux absides opposées — un cas unique dans l'art roman."
+      },
+      {
+        nom: "Vichy et les bords de l'Allier", region: "Allier", foule: "calme",
+        description: "La cité thermale Belle Époque la mieux conservée de France. Architecture extraordinaire, parcs impériaux, bords d'Allier accessibles.",
+        activites: [
+          "Parc des Sources (grandes serres Art Nouveau, promenade) 🟢 Gratuit",
+          "Centre thermal (visite extérieure, architecture fantastique) 🟢 Gratuit",
+          "Bords de l'Allier (promenade plate et accessible) 🟢 Gratuit",
+          "Marché de Vichy (tous les jours en saison) 🟢 Gratuit",
+          "Opéra de Vichy (visite guidée) 🔴 Payant (~6€/pers.)"
+        ],
+        chiens: { ok: true, detail: "✅ Parcs et bords d'Allier très accessibles. Ville calme, peu de restrictions. Chiens bienvenus dans les jardins en laisse." },
+        van: "Aire camping-car en bord d'Allier. Centre à pied (15 min).",
+        aires: ["Aire de Vichy (gratuite, bord d'Allier)", "Parking parcs (gratuit)"],
+        astuce: "Le Parc des Sources avec ses grandes serres Art Nouveau est un joyau architectural totalement gratuit."
+      }
+    ],
+
+    montagne: [
+      {
+        nom: "Monts de la Madeleine — Collines du Roannais", region: "Loire/Allier", foule: "calme",
+        description: "Un massif modeste (1 160m) entre Loire et Auvergne, couvert de forêts de sapins et de landes. Très calme, peu connu.",
+        activites: [
+          "Route forestière des Monts de la Madeleine (panoramas) 🟢 Gratuit",
+          "Village de Lapalisse (château, marché le mardi) 🟢 Gratuit / Château payant",
+          "Belvédère du Puy de Mur (vue sur la plaine) 🟢 Gratuit",
+          "Promenade en forêt (allées larges) 🟢 Gratuit",
+          "Village de Charlieu (abbaye clunisienne) 🔴 Payant (~6€/pers.)"
+        ],
+        chiens: { ok: true, detail: "✅ Forêts et chemins de montagne douce accessibles. Peu de monde, espace libre." },
+        van: "Routes de montagne praticables. Parkings aux belvédères.",
+        aires: ["Aire de Lapalisse (gratuite)", "Parking forêt (libre)"],
+        astuce: "Les Monts de la Madeleine sont le massif montagnard le moins fréquenté de la région."
+      }
+    ],
+
+    foret: [
+      {
+        nom: "Forêt de Tronçais", region: "Allier", foule: "calme",
+        description: "La plus belle forêt de chênes sessiles d'Europe. Des arbres de 350 ans, des étangs tranquilles, une atmosphère cathédrale. Absolument remarquable.",
+        activites: [
+          "Promenade sur les allées forestières (larges, plates, magnifiques) 🟢 Gratuit",
+          "Étang de Tronçais (baignade, pédalo) 🟢 Gratuit (pédalo payant)",
+          "Chênes centenaires remarquables (cartographie disponible) 🟢 Gratuit",
+          "Village de Saint-Bonnet-Tronçais (marché le vendredi) 🟢 Gratuit",
+          "Observation de la faune (cerfs en automne) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Forêt extraordinaire pour les chiens. Allées larges, peu de monde, calme parfait. Laisse conseillée près de l'étang." },
+        van: "Allées forestières larges et accessibles. Parking en forêt gratuit.",
+        aires: ["Aire de Saint-Bonnet-Tronçais (gratuite)", "Camping de Tronçais (animaux ok)"],
+        astuce: "Tronçais est peut-être la plus belle forêt de France — et presque personne ne le sait. Un secret absolu."
+      },
+      {
+        nom: "Forêt du Morvan — Autour de Château-Chinon", region: "Nièvre", foule: "calme",
+        description: "Le Morvan, massif ancien couvert de forêts de résineux et de feuillus, avec des rivières claires et des cascades.",
+        activites: [
+          "Cascades de Brisecou (courte marche accessible) 🟢 Gratuit",
+          "Musée du Septennat à Château-Chinon (cadeau présidentiels) 🔴 Payant (~4€/pers.)",
+          "Belvédère de Château-Chinon (vue panoramique) 🟢 Gratuit",
+          "Promenade en forêt (allées larges) 🟢 Gratuit",
+          "Marché de Château-Chinon (samedi matin) 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Forêts et rivières du Morvan idéales pour les chiens. Peu de monde, eau fraîche et claire." },
+        van: "Routes du Morvan accessibles. Parking à Château-Chinon.",
+        aires: ["Aire de Château-Chinon (gratuite)", "Parking forêt (libre)"],
+        astuce: "Le Musée du Septennat à Château-Chinon rassemble tous les cadeaux diplomatiques reçus par François Mitterrand — original et amusant."
+      }
+    ],
+
+    mer: [
+      {
+        nom: "Bords de Loire sauvages — Entre Cosne et Gien", region: "Nièvre/Loiret", foule: "calme",
+        description: "La Loire la plus sauvage, avec des bancs de sable, des îles boisées et des cigognes. Un fleuve à l'état naturel.",
+        activites: [
+          "Promenade sur les levées de Loire (chemin plat, accessible) 🟢 Gratuit",
+          "Observation des oiseaux (milans, cigognes, sternes) 🟢 Gratuit",
+          "Village de Cosne-Cours-sur-Loire (marché le samedi) 🟢 Gratuit",
+          "Château de Gien et son musée de la chasse 🔴 Payant (~7€/pers.)",
+          "Baignade sur les bancs de sable de la Loire 🟢 Gratuit"
+        ],
+        chiens: { ok: true, detail: "✅ Bords de Loire sauvages et bancs de sable idéaux pour les chiens. Baignade naturelle possible. Levées accessibles." },
+        van: "Levées de Loire facilement accessibles en van. Parking sur les levées.",
+        aires: ["Aire de Cosne-sur-Loire (gratuite, bord de Loire)", "Parking levées (libre)"],
+        astuce: "Les bancs de sable de la Loire entre Cosne et Gien sont des plages sauvages accessibles à pied depuis les levées."
       }
     ]
   }
@@ -802,15 +2157,10 @@ function updateSearchBtn() {
 function showResults() {
   const resultsDiv = document.getElementById('results');
   const aiSection = document.getElementById('aiSection');
-
-  // Trouver les destinations correspondantes
   const regionData = destinations[selectedRegion] || {};
-  
-  // Chercher dans l'environnement exact, puis dans un fallback
   let destList = regionData[selectedEnv] || null;
-  
-  // Si pas de correspondance exacte, chercher dans d'autres envs de la région
   let fallback = false;
+
   if (!destList || destList.length === 0) {
     const envKeys = Object.keys(regionData);
     if (envKeys.length > 0) {
@@ -820,29 +2170,24 @@ function showResults() {
   }
 
   if (!destList || destList.length === 0) {
-    resultsDiv.innerHTML = `
-      <div class="empty-state">
-        <div class="big">🗺️</div>
-        <p>Pas encore de destination pour cette combinaison.<br>Utilisez le bouton IA ci-dessous pour en obtenir !</p>
-      </div>`;
+    resultsDiv.innerHTML = `<div style="text-align:center;padding:3rem 1rem;color:#999"><div style="font-size:3rem;margin-bottom:1rem">🗺️</div><p style="font-size:1.1rem">Pas encore de destination pour cette combinaison.<br>Utilisez le bouton IA ci-dessous pour en obtenir !</p></div>`;
     aiSection.style.display = 'block';
     resultsDiv.scrollIntoView({ behavior: 'smooth' });
     return;
   }
 
-  let html = '';
+  let html = `<div class="results-count">🎯 ${destList.length} destination${destList.length > 1 ? 's' : ''} trouvée${destList.length > 1 ? 's' : ''} pour vous !</div>`;
+
   if (fallback) {
-    html += `<div style="background:#FFF3CD;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:1rem;color:#7A5C00;">
-      💡 Pas de destination exacte pour cette combinaison — voici des idées proches dans cette région. L'IA peut en suggérer d'autres !
-    </div>`;
+    html += `<div style="background:#FFF3CD;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:1rem;color:#7A5C00;">💡 Pas de destination exacte pour cette combinaison — voici des idées proches dans cette région. L'IA peut en suggérer d'autres !</div>`;
   }
 
   destList.forEach((dest, i) => {
-    const crowdLabel = dest.foule === 'calme' ? '🟢 Coin tranquille' : dest.foule === 'moyen' ? '🟡 Peut être fréquenté en haute saison' : '🔴 Zone touristique — éviter juillet-août';
+    const crowdLabel = dest.foule === 'calme' ? '🟢 Coin tranquille, peu de monde' : dest.foule === 'moyen' ? '🟡 Peut être fréquenté en juillet-août' : '🔴 Zone touristique — éviter juillet-août';
     const crowdClass = dest.foule === 'calme' ? 'crowd-calme' : dest.foule === 'moyen' ? 'crowd-moyen' : 'crowd-touristique';
 
     html += `
-    <div class="destination-card" style="animation-delay: ${i * 0.1}s">
+    <div class="destination-card" style="animation-delay:${i * 0.08}s">
       <div class="card-header">
         <h3>📍 ${dest.nom}</h3>
         <div class="subtitle">${dest.region}</div>
@@ -854,7 +2199,7 @@ function showResults() {
           <p>${dest.description}</p>
         </div>
         <div class="info-section">
-          <h4>🥾 Activités</h4>
+          <h4>🎯 À faire sur place</h4>
           <ul>${dest.activites.map(a => `<li>${a}</li>`).join('')}</ul>
         </div>
         <div class="info-section">
@@ -882,47 +2227,52 @@ function showResults() {
   document.getElementById('aiResponse').innerHTML = '';
   document.getElementById('aiResponse').classList.remove('visible');
   document.getElementById('aiBtn').disabled = false;
-  document.getElementById('aiBtn').textContent = '🤖 Générer d\'autres idées avec l\'IA';
-
+  document.getElementById('aiBtn').textContent = "🤖 Générer d'autres idées avec l'IA";
   resultsDiv.scrollIntoView({ behavior: 'smooth' });
 }
 
-// ===================== NOMS LISIBLES =====================
 const regionNames = {
-  'bretagne-sud': 'Bretagne Sud', 'val-de-loire': 'Val de Loire',
-  'dordogne': 'Dordogne & Périgord', 'charente': 'Charente & Creuse',
-  'landes': 'Landes & Gironde', 'massif-central': 'Massif Central',
-  'vendee-nord': 'Vendée & Pays de Loire', 'berry-bourbonnais': 'Berry & Bourbonnais'
+  'bretagne-sud':'Bretagne Sud','val-de-loire':'Val de Loire','dordogne':'Dordogne et Périgord',
+  'charente':'Charente et Creuse','landes':'Landes et Gironde','massif-central':'Massif Central',
+  'vendee-nord':'Vendée et Pays de Loire','berry-bourbonnais':'Berry et Bourbonnais'
 };
 const envNames = {
-  'mer': 'mer et côte', 'lac': 'lacs et rivières', 'montagne': 'collines et volcans',
-  'campagne': 'campagne et vignes', 'foret': 'forêts', 'village': 'villages et patrimoine'
+  'mer':'mer et côte','lac':'lacs et rivières','montagne':'collines et volcans',
+  'campagne':'campagne et vignes','foret':'forêts','village':'villages et patrimoine'
 };
 
-// ===================== IA =====================
 async function askAI() {
   const btn = document.getElementById('aiBtn');
   const responseDiv = document.getElementById('aiResponse');
-
   btn.disabled = true;
-  btn.innerHTML = '<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span> L\'IA cherche pour vous...';
+  btn.innerHTML = '<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span> Recherche en cours...';
   responseDiv.classList.remove('visible');
+
+  const existingNames = (destinations[selectedRegion]?.[selectedEnv] || []).map(d => d.nom).join(', ') || 'aucune';
 
   const prompt = `Tu es un expert en voyages en van avec des chiens en France.
 
-Un couple de retraités voyage en petit van aménagé avec deux chiens. Ils partent de Poitiers. Ils détestent la foule et préfèrent les coins tranquilles et peu touristiques. Ils recherchent des destinations en ${regionNames[selectedRegion] || selectedRegion}, dans un environnement de type "${envNames[selectedEnv] || selectedEnv}".
+Un couple de retraités voyage en petit van aménagé avec deux chiens depuis Poitiers. Ils ont les caractéristiques suivantes :
+- Ils détestent la foule et préfèrent les coins calmes et peu touristiques
+- L'un d'eux a du mal à marcher longtemps (soucis de santé), donc privilégier : petites balades courtes, visites accessibles, points de vue depuis la voiture, marchés, sites accessibles sans grande marche
+- Indiquer TOUJOURS si c'est gratuit ou payant (avec prix approximatif)
+- Ils ont deux chiens — préciser les droits d'accès des chiens
 
-Propose-leur 2 destinations supplémentaires, différentes de celles-ci : ${getExistingDestinationNames()}.
+Région choisie : ${regionNames[selectedRegion] || selectedRegion}
+Type de paysage : ${envNames[selectedEnv] || selectedEnv}
+Destinations déjà proposées (à ne pas répéter) : ${existingNames}
 
-Pour chaque destination, donne :
-- Le nom et la localisation précise
-- Pourquoi c'est adapté à un van avec deux chiens
-- Ce qu'on peut y faire
-- Si les chiens sont bienvenus et comment
-- S'il y a une aire camping-car ou un bon stationnement
-- Un conseil pour éviter la foule
+Propose 3 destinations supplémentaires différentes, peu fréquentées, dans cette région et ce type de paysage.
 
-Sois chaleureux, concret et pratique. Écris en français, de façon simple et lisible.`;
+Pour chaque destination :
+1. Nom et localisation
+2. Description courte (2-3 phrases)
+3. 4-5 activités accessibles (avec mention gratuit/payant et prix)
+4. Accès pour les chiens
+5. Stationnement van
+6. Un conseil pratique
+
+Sois concret, chaleureux et adapté à des personnes qui ne marchent pas beaucoup.`;
 
   try {
     const response = await fetch("https://api.anthropic.com/v1/messages", {
@@ -930,14 +2280,12 @@ Sois chaleureux, concret et pratique. Écris en français, de façon simple et l
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
+        max_tokens: 1500,
         messages: [{ role: "user", content: prompt }]
       })
     });
-
     const data = await response.json();
     const text = data.content?.map(i => i.text || '').join('\n') || "Pas de réponse reçue.";
-
     responseDiv.textContent = text;
     responseDiv.classList.add('visible');
     btn.textContent = '✅ Idées générées !';
@@ -947,12 +2295,6 @@ Sois chaleureux, concret et pratique. Écris en français, de façon simple et l
     btn.disabled = false;
     btn.textContent = '🤖 Réessayer';
   }
-}
-
-function getExistingDestinationNames() {
-  const regionData = destinations[selectedRegion] || {};
-  const destList = regionData[selectedEnv] || [];
-  return destList.map(d => d.nom).join(', ') || 'aucune';
 }
 </script>
 </body>
